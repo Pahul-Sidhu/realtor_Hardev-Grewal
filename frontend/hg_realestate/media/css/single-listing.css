@@ -1,0 +1,92 @@
+@media print {
+
+    * {
+      visibility: hidden;
+    }
+  
+      .outer-container {
+          overflow:visible;
+      }
+  
+    .listing-details-view, .listing-details-view * {
+      visibility: visible;
+    }
+  
+   .listing-details-view {
+       /** temporary disabling it - causing almost blank page **/
+      /* position: absolute !important; */
+      left: 0 !important;
+      top: 0 !important;
+    }
+  
+  
+      html, body, body div, span, object, iframe, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+          font-size:14px;
+      }
+  
+      #listing-details-view.mrp-style-area h1.mrp-listing-title,
+      #listing-details-view.mrp-style-area h2.mrp-listing-price-info {
+          margin-top:0px !important;
+      }
+  
+      .large-sidebar,
+      .post-image-sidebar,
+      .mrp-details-vow-toolbar-wrapper,
+      .mrp-idx-panel-controls,
+      .mrp-listing-details-tabs,
+      .mrp-listing-quick-actions,
+      .local-info-section,
+      .listing-details-navigation-container-bottom,
+      .mrp-listing-related,
+      .powered-by-outer,
+      .mrp-listing-related,
+      #listing-details-view.mrp-style-area .mrp-listing-photo-other .mrp-listing-photo-thumb .more::after,
+      #mrp-header,
+      #mrp-footer,
+      #custom-idx-branding,
+      .info-section-documents-and-links   {
+          display:none !important;
+      }
+  
+      .mrp-idx-panel .mrp-idx-panel-contents {
+          padding:0px !important;
+      }
+  
+      #listing-details-view.mrp-style-area .post-image-content,
+      #listing-details-view.mrp-style-area .post-image-wrapper {
+          width:100% !important;
+          max-width:100% !important;
+      }
+  
+      .mrp-owner-contact-container  {
+          page-break-inside: avoid;
+      }
+  
+      .page-footer,
+      .page-footer div {
+          font-size:10px !important;
+      }
+      
+      .dynamic-scroll-content {
+          display: none;
+      }
+  
+      #page-layout > :not(.mrp-weblet-listings) {
+          display: none !important;
+      }
+  
+      /*#page-layout > .block-layout.officelistings-001,*/
+      /*#page-layout > .block-layout.mylistings-001,*/
+      /*#page-layout > .block-layout.recip-001 {*/
+      /*    display: revert !important;*/
+      /*}*/
+  
+      #content-well #page-layout > * {
+          display: revert !important;
+      }
+  
+      .mrp-open-house-full-section {
+          display: none !important;
+      }
+  }
+  

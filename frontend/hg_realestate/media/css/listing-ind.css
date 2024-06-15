@@ -1,0 +1,3020 @@
+.hide-text {
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+  }
+  .clearfix {
+    zoom: 1;
+  }
+  .clearfix:before,
+  .clearfix:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  .clearfix:after {
+    clear: both;
+  }
+  @font-face {
+    font-family: "Flaticon";
+    src: url("../../fonts/flaticon.eot");
+    src: url("../../fonts/flaticon.eot#iefix") format("embedded-opentype"), url("../../fonts/flaticon.woff") format("woff"), url("../../fonts/flaticon.ttf") format("truetype"), url("../../fonts/flaticon.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+  }
+  .flat-btn-mixin {
+    white-space: nowrap;
+    display: inline-block;
+    padding: 8px 30px;
+    border: 0;
+    margin: 10px 1px;
+    cursor: pointer;
+    border-radius: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.84);
+    transition: background-color .2s ease, box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+    outline: none !important;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.84);
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+    transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+  }
+  .flat-btn-primary-mixin {
+    white-space: nowrap;
+    display: inline-block;
+    padding: 8px 30px;
+    border: 0;
+    margin: 10px 1px;
+    cursor: pointer;
+    border-radius: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color .2s ease, box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+    outline: none !important;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.84);
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+    transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+    background-color: var(--g-accent-color,#009688);
+    color: rgba(255, 255, 255, 0.84);
+  }
+  #listing-results-view.mrp-style-area,
+  #listing-details-view.mrp-style-area {
+    opacity: 0;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  #listing-results-view.mrp-style-area.xs,
+  #listing-details-view.mrp-style-area.xs {
+    opacity: 1;
+    -webkit-transition: opacity 250ms ease-in-out;
+    -moz-transition: opacity 250ms ease-in-out;
+    -ms-transition: opacity 250ms ease-in-out;
+    -o-transition: opacity 250ms ease-in-out;
+  }
+  .menu-handle-mixin {
+    font-family: "Glyphicons Halflings";
+    font-size: 20px;
+    white-space: nowrap;
+    display: inline-block;
+    padding: 8px 30px;
+    border: 0;
+    margin: 10px 1px;
+    cursor: pointer;
+    border-radius: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.84);
+    transition: background-color .2s ease, box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+    outline: none !important;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.84);
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+    transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+    padding: 2px 7px;
+  }
+  .menu-handle-mixin::after {
+    opacity: 0.7;
+  }
+  .floating-panel-mixin {
+    display: block;
+    position: absolute;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 15px #666;
+    white-space: nowrap;
+    z-index: 100;
+    right: 0;
+  }
+  .listing-contact-photo-wrapper-mixin {
+    display: block;
+    float: left;
+    overflow: hidden;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    margin-right: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #666;
+  }
+  .listing-contact-photo-wrapper-mixin img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    max-width: 110%;
+    margin: 0;
+  }
+  .mrp-style-area .embed-responsive-16by9 iframe,
+  .mrp-style-area .embed-responsive-4by3 iframe {
+    width: 100%;
+    height: 100%;
+  }
+  .mrp-style-area .animate-rotate {
+    animation: rotating 2s linear;
+    animation-iteration-count: infinite;
+  }
+  .mrp-style-area .animate-opacity-pulse {
+    animation: opacityPulse 2s ease-out;
+    animation-iteration-count: infinite;
+    opacity: 1;
+  }
+  .blocks-site .nav-inline-close {
+    display: none;
+  }
+  /* Make the element pulse (grow large and small slowly) */
+  /* Usage
+      .myElement {
+          animation: pulsate 1s ease-out;
+          animation-iteration-count: infinite;
+          opacity: 1; 
+      }
+  */
+  @-webkit-keyframes pulsate {
+    0% {
+      -webkit-transform: scale(0.1, 0.1);
+      opacity: 0.0;
+    }
+    50% {
+      opacity: 1.0;
+    }
+    100% {
+      -webkit-transform: scale(1.2, 1.2);
+      opacity: 0.0;
+    }
+  }
+  /* Make the element's opacity pulse*/
+  /* Usage
+      .myElement {
+          animation: opacityPulse 1s ease-out;
+          animation-iteration-count: infinite;
+          opacity: 0; 
+      }
+  */
+  @-webkit-keyframes opacityPulse {
+    0% {
+      opacity: 0.0;
+    }
+    50% {
+      opacity: 1.0;
+    }
+    100% {
+      opacity: 0.0;
+    }
+  }
+  /* Make the element's background pulse. I call this alertPulse because it is red. You can call it something more generic. */
+  /* Usage
+      .myElement {
+          animation: alertPulse 1s ease-out;
+          animation-iteration-count: infinite;
+          opacity: 1; 
+      }
+  */
+  @-webkit-keyframes alertPulse {
+    0% {
+      background-color: #9A2727;
+      opacity: 1;
+    }
+    50% {
+      opacity: red;
+      opacity: 0.75;
+    }
+    100% {
+      opacity: #9A2727;
+      opacity: 1;
+    }
+  }
+  /* Make the element rotate infinitely. */
+  /* 
+  Usage
+      .myElement {
+          animation: rotating 3s linear infinite;
+      }
+  */
+  @keyframes rotating {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  /* vow global toolbar */
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-non-auth,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-non-auth,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-non-auth {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    text-align: right;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-forgot-password,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-forgot-password,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-forgot-password,
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-extend,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-extend,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-extend,
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-verify,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-verify,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-verify,
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-contact,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-contact,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-contact {
+    display: none;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-signup,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-signup,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-signup {
+    display: none;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-login.btn,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-login.btn,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-login.btn {
+    font-size: 0;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-login.btn::before,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-login.btn::before,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-login.btn::before {
+    content: "Login / Signup";
+    font-size: 12px;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-login-with-external-id,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-login-with-external-id,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-login-with-external-id {
+    float: left;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-login-with-external-id > label,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-login-with-external-id > label,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-login-with-external-id > label {
+    margin-right: 10px;
+    display: inline-block;
+    display: none;
+    margin-bottom: 0;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-login-with-external-id > span,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-login-with-external-id > span,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-login-with-external-id > span {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-login-with-external-id > span img,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-login-with-external-id > span img,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-non-auth .mrp-vow-login-with-external-id > span img {
+    width: 20px;
+    height: 20px;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-non-auth .btn,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-non-auth .btn,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-non-auth .btn {
+    font-size: 12px;
+    padding: 4px 8px;
+    margin-left: 10px;
+    font-weight: bold;
+  }
+  .listing-results-view.mrp-style-area .mrp-details-vow-toolbar-wrapper,
+  .listing-details-view.mrp-style-area .mrp-details-vow-toolbar-wrapper,
+  .vow-landing.mrp-style-area .mrp-details-vow-toolbar-wrapper {
+    position: relative;
+    z-index: 10;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-auth,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-auth,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-auth {
+    zoom: 1;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-auth:before,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-auth:before,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-auth:before,
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-auth:after,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-auth:after,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-auth:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-auth:after,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-auth:after,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-auth:after {
+    clear: both;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-auth .mrp-auth-holder,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-auth .mrp-auth-holder,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-auth .mrp-auth-holder {
+    float: right;
+    margin-top: 5px;
+    order: 10;
+    flex-grow: 1;
+    text-align: right;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-auth .mrp-auth-holder strong,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-auth .mrp-auth-holder strong,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-auth .mrp-auth-holder strong,
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-auth .mrp-auth-holder span,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-auth .mrp-auth-holder span,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-auth .mrp-auth-holder span,
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-auth .mrp-auth-holder a,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-auth .mrp-auth-holder a,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-auth .mrp-auth-holder a {
+    display: inline-block;
+    max-width: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    vertical-align: baseline;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-auth .mrp-auth-holder .mrp-auth-name,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-auth .mrp-auth-holder .mrp-auth-name,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-auth .mrp-auth-holder .mrp-auth-name {
+    display: none;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-auth .mrp-auth-holder .mrp-auth-label,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-auth .mrp-auth-holder .mrp-auth-label,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-auth .mrp-auth-holder .mrp-auth-label {
+    display: none;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-auth .mrp-auth-holder .mrp-vow-logout,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-auth .mrp-auth-holder .mrp-vow-logout,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-auth .mrp-auth-holder .mrp-vow-logout {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
+    border-left: 1px solid #ddd;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-auth .btn,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-auth .btn,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-auth .btn {
+    float: left;
+    padding: 4px 8px;
+    margin-right: 10px;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-toolbar-auth .btn span,
+  .listing-details-view.mrp-style-area .mrp-vow-toolbar-auth .btn span,
+  .vow-landing.mrp-style-area .mrp-vow-toolbar-auth .btn span {
+    font-size: 12px;
+  }
+  .listing-results-view.mrp-style-area.xs .mrp-vow-toolbar-auth .btn .long,
+  .listing-details-view.mrp-style-area.xs .mrp-vow-toolbar-auth .btn .long,
+  .vow-landing.mrp-style-area.xs .mrp-vow-toolbar-auth .btn .long {
+    display: none;
+  }
+  .listing-results-view.mrp-style-area.xs .btn span,
+  .listing-details-view.mrp-style-area.xs .btn span,
+  .vow-landing.mrp-style-area.xs .btn span {
+    font-size: 13px;
+  }
+  .listing-results-view.mrp-style-area.sm .mrp-vow-toolbar-auth .btn .short,
+  .listing-details-view.mrp-style-area.sm .mrp-vow-toolbar-auth .btn .short,
+  .vow-landing.mrp-style-area.sm .mrp-vow-toolbar-auth .btn .short {
+    display: none;
+  }
+  .listing-results-view.mrp-style-area.sm .mrp-vow-toolbar-auth .btn .long,
+  .listing-details-view.mrp-style-area.sm .mrp-vow-toolbar-auth .btn .long,
+  .vow-landing.mrp-style-area.sm .mrp-vow-toolbar-auth .btn .long {
+    display: inline-block;
+  }
+  .listing-results-view.mrp-style-area.sm .mrp-vow-toolbar-non-auth .mrp-vow-login-with-external-id > label,
+  .listing-details-view.mrp-style-area.sm .mrp-vow-toolbar-non-auth .mrp-vow-login-with-external-id > label,
+  .vow-landing.mrp-style-area.sm .mrp-vow-toolbar-non-auth .mrp-vow-login-with-external-id > label {
+    margin-right: 10px;
+    display: inline-block;
+  }
+  .listing-results-view.mrp-style-area.sm .mrp-vow-toolbar-non-auth .mrp-vow-signup,
+  .listing-details-view.mrp-style-area.sm .mrp-vow-toolbar-non-auth .mrp-vow-signup,
+  .vow-landing.mrp-style-area.sm .mrp-vow-toolbar-non-auth .mrp-vow-signup {
+    display: inline-block;
+  }
+  .listing-results-view.mrp-style-area.sm .mrp-vow-toolbar-non-auth .mrp-vow-login.btn,
+  .listing-details-view.mrp-style-area.sm .mrp-vow-toolbar-non-auth .mrp-vow-login.btn,
+  .vow-landing.mrp-style-area.sm .mrp-vow-toolbar-non-auth .mrp-vow-login.btn {
+    display: inline-block;
+    font-size: inherit;
+  }
+  .listing-results-view.mrp-style-area.sm .mrp-vow-toolbar-non-auth .mrp-vow-login.btn::before,
+  .listing-details-view.mrp-style-area.sm .mrp-vow-toolbar-non-auth .mrp-vow-login.btn::before,
+  .vow-landing.mrp-style-area.sm .mrp-vow-toolbar-non-auth .mrp-vow-login.btn::before {
+    content: "";
+    font-size: inherit;
+  }
+  .listing-results-view.mrp-style-area.sm .mrp-vow-toolbar-auth .mrp-auth-holder .mrp-auth-name,
+  .listing-details-view.mrp-style-area.sm .mrp-vow-toolbar-auth .mrp-auth-holder .mrp-auth-name,
+  .vow-landing.mrp-style-area.sm .mrp-vow-toolbar-auth .mrp-auth-holder .mrp-auth-name {
+    display: inline-block;
+  }
+  .listing-results-view.mrp-style-area.md .mrp-vow-toolbar-auth .btn,
+  .listing-details-view.mrp-style-area.md .mrp-vow-toolbar-auth .btn,
+  .vow-landing.mrp-style-area.md .mrp-vow-toolbar-auth .btn {
+    float: left;
+    font-size: 12px;
+    padding: 4px 8px;
+    margin-right: 10px;
+  }
+  .listing-results-view.mrp-style-area.md .mrp-vow-toolbar-auth .mrp-auth-holder,
+  .listing-details-view.mrp-style-area.md .mrp-vow-toolbar-auth .mrp-auth-holder,
+  .vow-landing.mrp-style-area.md .mrp-vow-toolbar-auth .mrp-auth-holder {
+    margin-left: 10px;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-listing-toolbar-container,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-toolbar-container,
+  .vow-landing.mrp-style-area .mrp-vow-listing-toolbar-container {
+    position: relative;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-fav,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-fav,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-fav,
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-not-fav,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-not-fav,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-not-fav {
+    height: 0;
+    position: relative;
+    z-index: 10;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-button,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-button,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-button,
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-button,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-button,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-button {
+    position: absolute;
+    z-index: 10;
+    right: 10px;
+    top: 10px;
+    padding: 5px 8px;
+    opacity: 0.8;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-button > span.mdicon,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-button > span.mdicon,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-button > span.mdicon,
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-button > span.mdicon,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-button > span.mdicon,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-button > span.mdicon {
+    font-size: 18px;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-cat-icon,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-cat-icon,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-cat-icon,
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-cat-icon,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-cat-icon,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-cat-icon {
+    font-size: 13px;
+    vertical-align: middle;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-cat,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-cat,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-cat,
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-cat,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-cat,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-cat,
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-note,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-note,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-note,
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-note,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-note,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-note {
+    display: none;
+    font-size: 12px;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-cat .mrp-vow-listing-fav-cat-label,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-cat .mrp-vow-listing-fav-cat-label,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-cat .mrp-vow-listing-fav-cat-label,
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-cat .mrp-vow-listing-fav-cat-label,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-cat .mrp-vow-listing-fav-cat-label,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-cat .mrp-vow-listing-fav-cat-label,
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-note .mrp-vow-listing-fav-cat-label,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-note .mrp-vow-listing-fav-cat-label,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-note .mrp-vow-listing-fav-cat-label,
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-note .mrp-vow-listing-fav-cat-label,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-note .mrp-vow-listing-fav-cat-label,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-note .mrp-vow-listing-fav-cat-label {
+    font-weight: bold;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-cat-name,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-cat-name,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-cat-name,
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-cat-name,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-cat-name,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-cat-name,
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-note,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-note,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-note,
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-note,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-note,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-note {
+    font-style: italic;
+  }
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-cat-label:before,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-cat-label:before,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-cat-label:before,
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-cat-label:before,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-cat-label:before,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-cat-label:before,
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-note:before,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-note:before,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-fav .mrp-vow-listing-fav-note:before,
+  .listing-results-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-note:before,
+  .listing-details-view.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-note:before,
+  .vow-landing.mrp-style-area .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-note:before {
+    font-family: "Material-Design-Icons";
+    content: "\e61a";
+    padding-right: 5px;
+    font-style: normal;
+  }
+  .mrp-vow-search-settings-alerts label {
+    width: 100%;
+    text-align: left;
+  }
+  .mrp-vow-search-settings-optin-listings,
+  .mrp-vow-search-settings-optin-other {
+    padding: 0px 10px;
+  }
+  .listing-details-view.mrp-style-area.xs .mrp-vow-listing-is-fav {
+    height: auto;
+    margin: 5px 0;
+    padding-top: 5px;
+    border-top: 1px solid #ddd;
+    padding: 5px;
+  }
+  .listing-details-view.mrp-style-area.xs .mrp-vow-listing-is-fav .mrp-vow-listing-fav-cat,
+  .listing-details-view.mrp-style-area.xs .mrp-vow-listing-is-fav .mrp-vow-listing-fav-note {
+    display: block;
+  }
+  .listing-details-view.mrp-style-area.xs .mrp-vow-listing-is-fav .mrp-vow-listing-fav-button {
+    right: 0px;
+    top: 5px;
+  }
+  .listing-details-view.mrp-style-area.xs .mrp-vow-listing-is-not-fav {
+    height: auto;
+    position: absolute;
+    z-index: 10;
+    text-align: right;
+    width: 100%;
+  }
+  .listing-details-view.mrp-style-area.xs .mrp-vow-listing-is-not-fav .mrp-vow-listing-fav-button {
+    position: relative;
+    z-index: 10;
+    right: auto;
+    top: auto;
+    right: 10px;
+    top: 10px;
+  }
+  .mrp-vow-login-form .mrp-vow-remember-me > * {
+    float: none;
+    text-align: left;
+  }
+  .mrp-vow-login-form .mrp-vow-login-signup a,
+  .mrp-vow-login-form .mrp-vow-login-forgot-password a {
+    float: none;
+    padding-left: 0;
+  }
+  /* listing details less */
+  /* ---------------------*/
+  .mrp-listing-details-map {
+    height: 500px;
+    position: relative;
+  }
+  .mrp-listing-details-map-toolbar {
+    font-size: 140%;
+    text-align: center;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  .mrp-listing-details-map-toolbar a {
+    display: inline-block;
+    margin-left: 10px;
+    padding-left: 10px;
+  }
+  .mrp-listing-details-map-toolbar a:first-child {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .mrp-small-photo-thumb-outer {
+    display: none;
+  }
+  .mrp-style-area .mrp-listing-link,
+  .mrp-style-area .mrp-i-unit,
+  .mrp-style-area .mrp-m-unit,
+  .mrp-style-area .menu-handle {
+    cursor: pointer;
+  }
+  .mrp-style-area .noselect {
+    -webkit-touch-callout: none;/* iOS Safari */
+    -webkit-user-select: none;/* Chrome/Safari/Opera */
+    -khtml-user-select: none;/* Konqueror */
+    -moz-user-select: none;/* Firefox */
+    -ms-user-select: none;/* Internet Explorer/Edge */
+    user-select: none;/* Non-prefixed version, currently
+                                        not supported by any browser */
+  }
+  .photo-thumb-overlay-mixin {
+    content: attr(data-more);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: white;
+    font-size: 40px;
+    font-size: 5vw;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+  .mrp-idx-panel-controls + .mrp-idx-panel-contents #listing-details-view.xs.sm .mrp-details-vow-toolbar-wrapper {
+    position: fixed;
+    top: 0px;
+    margin-top: 0px;
+    z-index: 200;
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  .mrp-idx-panel-controls + .mrp-idx-panel-contents #listing-details-view.xs .mrp-details-vow-toolbar-wrapper {
+    z-index: 10;
+  }
+  #listing-details-view.mrp-style-area {
+    font-size: 13px;
+  }
+  #listing-details-view.mrp-style-area .post-image-sidebar {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area .large-sidebar {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area .sidebar-map-options {
+    text-align: center;
+    padding: 5px 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-not-found {
+    text-align: center;
+    padding: 150px 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-navigation-container {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area .mrp-vow-signup {
+    cursor: pointer !important;
+  }
+  #listing-details-view.mrp-style-area .measuring-unit-mixin {
+    color: #428bca;
+    display: inline-block;
+    border-bottom: 2px solid #428bca;
+  }
+  #listing-details-view.mrp-style-area .mrp-i-unit,
+  #listing-details-view.mrp-style-area .mrp-m-unit {
+    color: #428bca;
+    display: inline-block;
+    border-bottom: 2px solid #428bca;
+  }
+  #listing-details-view.mrp-style-area h1.mrp-listing-title,
+  #listing-details-view.mrp-style-area h2.mrp-listing-price-info {
+    width: 50%;
+    margin: 20px 0 0 0;
+    display: inline-block;
+    position: relative;
+    font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 46px;
+    vertical-align: top;
+  }
+  #listing-details-view.mrp-style-area h1.mrp-listing-title span,
+  #listing-details-view.mrp-style-area h2.mrp-listing-price-info span {
+    font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 46px;
+  }
+  #listing-details-view.mrp-style-area h1.mrp-listing-title .sub-info,
+  #listing-details-view.mrp-style-area h2.mrp-listing-price-info .sub-info,
+  #listing-details-view.mrp-style-area h1.mrp-listing-title sub-locatino,
+  #listing-details-view.mrp-style-area h2.mrp-listing-price-info sub-locatino {
+    padding-bottom: 10px;
+  }
+  #listing-details-view.mrp-style-area h1.mrp-listing-title .sold,
+  #listing-details-view.mrp-style-area h2.mrp-listing-price-info .sold {
+    color: #dc3545;
+  }
+  #listing-details-view.mrp-style-area h1.mrp-listing-title .sub-location > span {
+    line-height: 20px;
+    color: #777;
+    font-size: 16px;
+    font-family: "Open Sans", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  #listing-details-view.mrp-style-area h2.mrp-listing-price-info {
+    text-align: right;
+    font-family: "Open Sans", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  #listing-details-view.mrp-style-area h2.mrp-listing-price-info .sub-info > span {
+    line-height: 1;
+    color: #777;
+    font-size: 14px;
+    font-family: "Open Sans", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: inline-block;
+  }
+  #listing-details-view.mrp-style-area h2.mrp-listing-price-info .sub-info > span .highlight {
+    line-height: 1;
+    font-weight: bold;
+    color: #666;
+    font-size: 16px;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-quick-actions {
+    margin-left: -2px;
+    margin-right: -2px;
+    margin-top: 0px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-quick-actions > span {
+    cursor: pointer;
+    background-color: var(--g-accent-color,#428bca);
+    color: white;
+    line-height: 40px;
+    width: 40px;
+    text-align: center;
+    font-size: 22px;
+    display: inline-block;
+    margin: 2px;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-quick-actions.top {
+    text-align: right;
+  }
+  @media (max-width: 440px) {
+    #listing-details-view.mrp-style-area .mrp-listing-quick-actions > span.details-ribbon {
+      display: block;
+    }
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container.standalone {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area .mrp-vow-listing-is-not-fav {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container {
+    float: right;
+    margin-top: 0px;
+    position: relative;
+    z-index: 150;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container::before {
+    margin-right: 10px;
+    vertical-align: 5px;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .details-sm-share-container-inner {
+    display: block;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 15px #666;
+    white-space: nowrap;
+    z-index: 100;
+    right: 0;
+    text-align: left;
+    position: absolute;
+    left: -5000px;
+    max-width: 270px;
+    padding: 30px;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .details-sm-share-container-inner::before {
+    content: "Share this listing: ";
+    display: block;
+    margin-bottom: 20px;
+    font-weight: bold;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .details-sm-share-container-inner > .details-sm-share-item {
+    display: block;
+    margin-bottom: 20px;
+    margin-right: 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .details-sm-share-container-inner > .details-sm-share-item:last-child {
+    margin-bottom: 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container.on .details-sm-share-container-inner {
+    left: auto;
+    right: 0px;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container.quick-actions.on .details-sm-share-container-inner {
+    top: 10px;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .menu-handle {
+    font-family: "Glyphicons Halflings";
+    font-size: 20px;
+    white-space: nowrap;
+    display: inline-block;
+    padding: 8px 30px;
+    border: 0;
+    margin: 10px 1px;
+    cursor: pointer;
+    border-radius: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.84);
+    transition: background-color .2s ease, box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+    outline: none !important;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.84);
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+    transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+    padding: 2px 7px;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .menu-handle::after {
+    opacity: 0.7;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .menu-handle::after {
+    content: "\e8ed";
+    font-family: "Material-Design-Icons";
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container.quick-actions .menu-handle {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .custom-share-mixin {
+    font-size: 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .custom-share-mixin a {
+    padding: 5px 10px;
+    display: block;
+    text-align: center;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .custom-share-mixin a::after,
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .custom-share-mixin a::before {
+    color: white;
+    font-size: 14px;
+    display: inline-block;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-twitter-share {
+    font-size: 0;
+    background-color: #55acee;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-twitter-share a {
+    padding: 5px 10px;
+    display: block;
+    text-align: center;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-twitter-share a::after,
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-twitter-share a::before {
+    color: white;
+    font-size: 14px;
+    display: inline-block;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-twitter-share a::after {
+    content: "Share on Twitter";
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-twitter-share {
+    font-size: 0;
+    background-color: #000000;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-twitter-share a {
+    padding: 5px 10px;
+    display: block;
+    text-align: center;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-twitter-share a::after,
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-twitter-share a::before {
+    color: white;
+    font-size: 14px;
+    display: inline-block;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-twitter-share a::after {
+    content: "Share on X";
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-facebook-share {
+    font-size: 0;
+    background-color: #3b5998;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-facebook-share a {
+    padding: 5px 10px;
+    display: block;
+    text-align: center;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-facebook-share a::after,
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-facebook-share a::before {
+    color: white;
+    font-size: 14px;
+    display: inline-block;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-facebook-share a::after {
+    content: "Share on Facebook";
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-gplus-share {
+    font-size: 0;
+    background-color: #dd4b39;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-gplus-share a {
+    padding: 5px 10px;
+    display: block;
+    text-align: center;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-gplus-share a::after,
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-gplus-share a::before {
+    color: white;
+    font-size: 14px;
+    display: inline-block;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-gplus-share a::after {
+    content: "Share on Google+";
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-pinterest-share {
+    font-size: 0;
+    background-color: #dd242c;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-pinterest-share a {
+    padding: 5px 10px;
+    display: block;
+    text-align: center;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-pinterest-share a::after,
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-pinterest-share a::before {
+    color: white;
+    font-size: 14px;
+    display: inline-block;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-pinterest-share a::after {
+    content: "Share on Pinterest";
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-url-share {
+    font-size: 0;
+    background-color: #428bca;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-url-share a {
+    padding: 5px 10px;
+    display: block;
+    text-align: center;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-url-share a::after,
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-url-share a::before {
+    color: white;
+    font-size: 14px;
+    display: inline-block;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-sm-share-container .mrp-url-share a::after {
+    content: "Share Link";
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-sold-ad {
+    color: #d44950;
+    font-weight: bold;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-houses-more {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-section.on ~ .mrp-open-houses-more {
+    display: block;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-section {
+    color: #d44950;
+    font-weight: bold;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-section .more-open-houses-link {
+    display: block;
+    font-weight: normal;
+    margin-left: 10px;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-section.on .more-open-houses-link {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-tabs {
+    list-style: none;
+    margin: 15px 0;
+    padding: 0;
+    font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-tabs > li {
+    display: inline-block;
+    margin-right: 8px;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-tabs > li a {
+    text-decoration: none;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-tabs > li a:active,
+  #listing-details-view.mrp-style-area .mrp-listing-details-tabs > li a:focus {
+    text-decoration: none;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-tabs > li:last-child {
+    margin-right: 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-tabs li.active {
+    border-bottom: 3px solid #428bca;
+  }
+  #listing-details-view.mrp-style-area .tab-pane {
+    position: relative;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-custom-top,
+  #listing-details-view.mrp-style-area .listing-custom-bottom {
+    margin-bottom: 20px;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-main-image-container {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    padding-bottom: 56.25%;
+    cursor: pointer;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-main-image-container .inner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-main-image-container .inner img.mrp-listing-main-image {
+    max-width: none;
+    max-height: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-main-image-container .listing-main-photo-banner {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-main-image-container.empty {
+    margin: 0 auto;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-main-image-container.empty::after {
+    position: absolute;
+    content: "\e7f4";
+    font-family: "Material-Design-Icons";
+    font-size: 70px;
+    display: block;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-photo-other {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    zoom: 1;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-photo-other:before,
+  #listing-details-view.mrp-style-area .mrp-listing-photo-other:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-photo-other:after {
+    clear: both;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-photo-other .mrp-listing-photo-inner {
+    width: calc( 100% + 5px);
+    position: relative;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-photo-other .mrp-listing-photo-thumb {
+    width: 20%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    border-right: 5px solid white;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-photo-other .mrp-listing-photo-thumb:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 85%;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-photo-other .mrp-listing-photo-thumb img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    max-width: 150%;
+    max-height: 150%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-photo-other .mrp-listing-photo-thumb .more {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.7;
+    background-color: black;
+    cursor: pointer;
+    letter-spacing: -5px;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-photo-other .mrp-listing-photo-thumb .more:after {
+    content: attr(data-more);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: white;
+    font-size: 40px;
+    font-size: 5vw;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-price-container {
+    font-weight: bold;
+    text-align: center;
+    font-size: 24px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-main-summary > div {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-main-summary > div dl {
+    margin: 0;
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-main-summary > div dt,
+  #listing-details-view.mrp-style-area .mrp-details-main-summary > div dd {
+    display: table-cell;
+    width: 50%;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-main-summary > div dt {
+    border-right: 1px solid #ddd;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-main-summary > div:last-child dt,
+  #listing-details-view.mrp-style-area .mrp-details-main-summary > div:last-child dd {
+    border-bottom: 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-main-summary .mrp-status .status-sold {
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 2px 5px;
+    background-color: #f80000;
+    color: white;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-links-section > ul {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-links-section > ul li {
+    white-space: nowrap;
+    display: inline-block;
+    padding: 8px 30px;
+    border: 0;
+    margin: 10px 1px;
+    cursor: pointer;
+    border-radius: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.84);
+    transition: background-color .2s ease, box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+    outline: none !important;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.84);
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+    transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 4px;
+    background-color: var(--g-accent-color,#428bca);
+    margin-left: 0;
+    margin-right: 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-links-section > ul li a {
+    display: block;
+    font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    color: white;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-links-section > ul .contact-link-outer {
+    transition: background-color 0.2s linear;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-links-section > ul .contact-link-outer.highlighted {
+    background-color: #d4882a;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-links-section > ul .mortgage-calc-link {
+    font-size: 0 !important;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-links-section > ul .mortgage-calc-link::before {
+    content: "Mortgage Calc";
+    font-size: 18px;
+  }
+  #listing-details-view.mrp-style-area section.mrp-market-compare {
+    margin-bottom: 20px;
+  }
+  #listing-details-view.mrp-style-area .section-label-mixin {
+    display: block;
+    font-size: 110%;
+    font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 0 5px 0;
+    margin-bottom: 0px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-info-section label,
+  #listing-details-view.mrp-style-area .mrp-listing-wide-info-section label {
+    display: block;
+    font-size: 110%;
+    font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 0 5px 0;
+    margin-bottom: 0px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-info-section dl,
+  #listing-details-view.mrp-style-area .mrp-listing-wide-info-section dl {
+    margin: 0;
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-info-section dt,
+  #listing-details-view.mrp-style-area .mrp-listing-wide-info-section dt,
+  #listing-details-view.mrp-style-area .mrp-listing-info-section dd,
+  #listing-details-view.mrp-style-area .mrp-listing-wide-info-section dd {
+    display: table-cell;
+    width: 50%;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+    font-weight: normal;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-info-section dt,
+  #listing-details-view.mrp-style-area .mrp-listing-wide-info-section dt {
+    border-right: 1px solid #ddd;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-wide-info-section label {
+    font-size: 16px;
+    text-align: left;
+  }
+  #listing-details-view.mrp-style-area .room-info-section label,
+  #listing-details-view.mrp-style-area .bathroom-info-section label {
+    display: block;
+    font-size: 110%;
+    font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 0 5px 0;
+    margin-bottom: 0px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+  }
+  #listing-details-view.mrp-style-area .room-info-section dl,
+  #listing-details-view.mrp-style-area .bathroom-info-section dl {
+    margin: 0;
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+  #listing-details-view.mrp-style-area .room-info-section dt,
+  #listing-details-view.mrp-style-area .bathroom-info-section dt,
+  #listing-details-view.mrp-style-area .room-info-section dd,
+  #listing-details-view.mrp-style-area .bathroom-info-section dd {
+    display: table-cell;
+    table-layout: fixed;
+    width: 25%;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+  }
+  #listing-details-view.mrp-style-area .room-info-section dd,
+  #listing-details-view.mrp-style-area .bathroom-info-section dd {
+    border-right: 1px solid #ddd;
+  }
+  #listing-details-view.mrp-style-area .room-info-section dd:last-child,
+  #listing-details-view.mrp-style-area .bathroom-info-section dd:last-child {
+    border-right: 0;
+  }
+  #listing-details-view.mrp-style-area .info-section-documents-and-links .document-or-link-item {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-attribution-container {
+    text-align: right;
+    padding-top: 10px;
+  }
+  #listing-details-view.mrp-style-area .listing-custom-disclaimer {
+    padding: 15px 0 5px 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-owner-contact-container {
+    zoom: 1;
+    clear: both;
+    position: relative;
+    padding-top: 10px;
+  }
+  #listing-details-view.mrp-style-area .mrp-owner-contact-container:before,
+  #listing-details-view.mrp-style-area .mrp-owner-contact-container:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-owner-contact-container:after {
+    clear: both;
+  }
+  #listing-details-view.mrp-style-area .mrp-owner-contact-container .listing-contact-info {
+    zoom: 1;
+    position: relative;
+    background-color: #eee;
+    padding: 10px;
+    font-size: 12px;
+  }
+  #listing-details-view.mrp-style-area .mrp-owner-contact-container .listing-contact-info:before,
+  #listing-details-view.mrp-style-area .mrp-owner-contact-container .listing-contact-info:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-owner-contact-container .listing-contact-info:after {
+    clear: both;
+  }
+  #listing-details-view.mrp-style-area .mrp-owner-contact-container .listing-contact-info .listing-contact-photo-wrapper {
+    float: left;
+    overflow: hidden;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    margin-right: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #666;
+  }
+  #listing-details-view.mrp-style-area .mrp-owner-contact-container .listing-contact-info .listing-contact-photo-wrapper img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    max-width: 110%;
+  }
+  #listing-details-view.mrp-style-area .mrp-owner-contact-container .listing-contact-info .listing-contact-info-wrapper {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    float: left;
+    padding: 0;
+    margin: 0;
+    line-height: 20px;
+    max-width: 100%;
+  }
+  #listing-details-view.mrp-style-area .mrp-owner-contact-container .listing-contact-info .listing-contact-info-wrapper li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  #listing-details-view.mrp-style-area .mrp-owner-contact-container .listing-contact-info .listing-contact-info-wrapper li a {
+    cursor: pointer;
+  }
+  #listing-details-view.mrp-style-area .mrp-owner-contact-container .listing-contact-info:first-child {
+    margin-bottom: 10px;
+  }
+  #listing-details-view.mrp-style-area .mrp-owner-contact-container.multiple .listing-contact-info {
+    width: 100%;
+  }
+  #listing-details-view.mrp-style-area .mpr-listing-attribution-container {
+    clear: both;
+    padding: 5px 0;
+    opacity: 0.7;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-last-modified {
+    font-size: 11px;
+    text-align: center;
+    opacity: 0.8;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-page-navigation {
+    zoom: 1;
+    margin-top: 0px;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-page-navigation:before,
+  #listing-details-view.mrp-style-area .mrp-listing-details-page-navigation:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-page-navigation:after {
+    clear: both;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-page-navigation .icon-mixin {
+    font-family: "Material-Design-Icons";
+    font-size: 19px;
+    vertical-align: -3px;
+    line-height: 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-page-navigation > a {
+    white-space: nowrap;
+    display: inline-block;
+    padding: 8px 30px;
+    border: 0;
+    margin: 10px 1px;
+    cursor: pointer;
+    border-radius: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.84);
+    transition: background-color .2s ease, box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+    outline: none !important;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.84);
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+    transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+    padding-left: 15px;
+    padding-right: 15px;
+    display: block;
+    width: calc( 50% - 10px );
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-page-navigation > a.prev-nav {
+    float: left;
+    text-align: left;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-page-navigation > a.prev-nav::before {
+    content: "\e8a8 ";
+    font-family: "Material-Design-Icons";
+    font-size: 19px;
+    vertical-align: -3px;
+    line-height: 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-page-navigation > a.next-nav {
+    float: right;
+    text-align: right;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-page-navigation > a.next-nav::after {
+    content: "\e8a9 ";
+    font-family: "Material-Design-Icons";
+    font-size: 19px;
+    vertical-align: -3px;
+    line-height: 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-all-photos-container > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-all-photos-container > ul li {
+    display: block;
+    position: relative;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-all-photos-container > ul li .image-toolbar {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    text-align: right;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-all-photos-container > ul li .image-toolbar > a {
+    font-family: "Material-Design-Icons";
+    font-size: 20px;
+    margin-right: 10px;
+    margin-top: 10px;
+    opacity: 0.8;
+    padding: 1px 6px;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-all-photos-container > ul li .image-toolbar .new-window-link::after {
+    content: "\e640";
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-all-photos-container > ul li .image-toolbar .back-to-top-link::after {
+    content: "\e8ab";
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-all-photos-container > ul li img {
+    cursor: pointer;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-all-photos-container > ul li:nth-child(1) .back-to-top-link,
+  #listing-details-view.mrp-style-area .mrp-listing-details-all-photos-container > ul li:nth-child(2) .back-to-top-link,
+  #listing-details-view.mrp-style-area .mrp-listing-details-all-photos-container > ul li:nth-child(3) .back-to-top-link {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-all-photos-container > ul .mrp-listing-full-size-description {
+    padding: 5px 0 20px 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-floor-plan-item {
+    position: relative;
+    width: 100%;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-floor-plan-item img {
+    position: relative;
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  #listing-details-view.mrp-style-area h3.mrp-listing-movie-title,
+  #listing-details-view.mrp-style-area h3.mrp-listing-floor-plan-title {
+    font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-virtual-tour-section {
+    margin: 30px 0;
+    text-align: center;
+  }
+  #listing-details-view.mrp-style-area .embed-responsive {
+    font-size: 13px;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-video-item,
+  #listing-details-view.mrp-style-area .mrp-listing-floor-plan-item {
+    position: relative;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-video-item:last-child,
+  #listing-details-view.mrp-style-area .mrp-listing-floor-plan-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-video-item .outlink,
+  #listing-details-view.mrp-style-area .mrp-listing-floor-plan-item .outlink {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    padding: 1px 6px;
+    font-family: "Material-Design-Icons";
+    font-size: 20px;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-video-item .outlink::before,
+  #listing-details-view.mrp-style-area .mrp-listing-floor-plan-item .outlink::before {
+    content: "\e640";
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-map-toolbar {
+    text-align: left;
+    position: relative;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    text-align: right;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-map-toolbar .menu-label {
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 10px;
+    vertical-align: 5px;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-map-toolbar .menu-handle {
+    display: block;
+    font-family: "Glyphicons Halflings";
+    font-size: 20px;
+    white-space: nowrap;
+    display: inline-block;
+    padding: 8px 30px;
+    border: 0;
+    margin: 10px 1px;
+    cursor: pointer;
+    border-radius: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.84);
+    transition: background-color .2s ease, box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+    outline: none !important;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.84);
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+    transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+    padding: 2px 7px;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-map-toolbar .menu-handle::after {
+    opacity: 0.7;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-map-toolbar .menu-handle::before {
+    font-size: 14px;
+    vertical-align: 6px;
+    margin-right: 10px;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-map-toolbar .menu-handle::after {
+    content: "\e236";
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-map-toolbar .menu-items {
+    display: block;
+    position: absolute;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 15px #666;
+    white-space: nowrap;
+    z-index: 100;
+    right: 0;
+    top: 50px;
+    display: none;
+    text-align: left;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-map-toolbar .menu-items > a {
+    display: block;
+    padding: 5px 5px;
+    margin: 0;
+    font-size: 16px;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-details-map-toolbar.on .menu-items {
+    display: block;
+  }
+  #listing-details-view.mrp-style-area .map-img-wrapper {
+    overflow: hidden;
+    position: relative;
+  }
+  #listing-details-view.mrp-style-area .map-img-wrapper > img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  #listing-details-view.mrp-style-area .listing-details-content-area {
+    position: relative;
+  }
+  #listing-details-view.mrp-style-area aside section {
+    position: relative;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-maps > div {
+    width: 100%;
+    position: relative;
+    height: 0;
+    padding-bottom: 60%;
+    margin-bottom: 30px;
+    text-align: unset;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-maps > div.mrp-listing-walkscore-container-sav {
+    padding: 0;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-maps .mrp-listing-walkscore-container {
+    padding-bottom: 100%;
+    overflow: hidden;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-maps .mrp-listing-walkscore-container iframe#walkscore {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-maps .mrp-listing-walkscore-container ~ .origin-disclaimer {
+    margin-top: 0.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+    position: relative;
+    height: auto;
+    padding-bottom: 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-maps .mrp-listing-birdseye-container iframe#birdseye {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-maps .mrp-listing-google-map,
+  #listing-details-view.mrp-style-area .mrp-listing-maps .mrp-listing-street-view,
+  #listing-details-view.mrp-style-area .mrp-listing-maps .mrp-listing-birds-eye {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    padding-bottom: 40px;
+    padding-top: 20px;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-last-modified {
+    margin-top: 10px;
+  }
+  #listing-details-view.mrp-style-area .powered-by {
+    font-size: 11px;
+    text-align: center;
+    padding: 10px 0 20px 0;
+  }
+  #listing-details-view.mrp-style-area .local-info-section {
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar.not-ready {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar {
+    font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-bottom: 25px;
+    border: 1px solid #428bca;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar * {
+    font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  #listing-details-view.mrp-style-area .post-image-sidebar .mrp-ll-sidebar {
+    margin-bottom: -10px;
+  }
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar .mrp-ll-heading {
+    text-align: center;
+    font-size: 22px;
+    font-weight: normal;
+    color: #428bca;
+    padding: 6px 0px;
+  }
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar .mrp-ll-icon img {
+    width: 30px;
+    height: 30px;
+  }
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar .mrp-ll-item {
+    border-bottom: 1px solid #eee;
+    cursor: default;
+    padding: 8px 12px;
+  }
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar .mrp-ll-item .mrp-ll-header {
+    border: 0px;
+    cursor: default;
+    height: auto;
+    display: flex;
+  }
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar .mrp-ll-item .mrp-ll-header .mrp-ll-name span {
+    font-size: 18px;
+  }
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar .mrp-ll-item .mrp-ll-header .mrp-ll-name {
+    font-weight: normal;
+    padding-left: 10px;
+    flex-grow: 1;
+  }
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar .mrp-ll-item .mrp-ll-score span {
+    display: inline-block;
+    color: white;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    line-height: 30px !important;
+    letter-spacing: -1px;
+    text-align: center;
+  }
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar .mrp-ll-item .mrp-ll-score-color-9 span,
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar .mrp-ll-item .mrp-ll-score-color-10 span {
+    background-color: #19aa00;
+    border-color: #19aa00;
+  }
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar .mrp-ll-item .mrp-ll-score-color-8 span,
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar .mrp-ll-item .mrp-ll-score-color-7 span,
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar .mrp-ll-item .mrp-ll-score-color-6 span {
+    background-color: #93c622;
+    border-color: #93c622;
+  }
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar .mrp-ll-item .mrp-ll-score-color-5 span,
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar .mrp-ll-item .mrp-ll-score-color-4 span,
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar .mrp-ll-item .mrp-ll-score-color-3 span {
+    background-color: #F7CB14;
+    border-color: #F7CB14;
+  }
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar .mrp-ll-item .mrp-ll-score-color-0 span,
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar .mrp-ll-item .mrp-ll-score-color-1 span,
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar .mrp-ll-item .mrp-ll-score-color-2 span {
+    background-color: #E87528;
+    border-color: #E87528;
+  }
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar .mrp-ll-footer {
+    background-color: #428bca;
+    border-radius: 0px 0px 5px 5px;
+  }
+  #listing-details-view.mrp-style-area .mrp-ll-sidebar .mrp-ll-footer a {
+    color: #fff !important;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    padding: 6px 0px;
+    text-transform: uppercase;
+  }
+  #listing-details-view.mrp-style-area .mrp-area-stats {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+    border: 1px solid var(--g-accent-color,#428bca);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  #listing-details-view.mrp-style-area .mrp-area-stats .inner {
+    position: relative;
+  }
+  #listing-details-view.mrp-style-area .mrp-area-stats * {
+    font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  #listing-details-view.mrp-style-area .mrp-area-stats .mrp-area-stats-heading {
+    text-align: center;
+    font-size: 22px;
+    font-weight: normal;
+    color: var(--g-accent-color,#428bca);
+    padding: 6px 0px;
+  }
+  #listing-details-view.mrp-style-area .mrp-area-stats > div {
+    width: 100%;
+    border-bottom: 1px solid #eee;
+  }
+  #listing-details-view.mrp-style-area .mrp-area-stats div:first-child,
+  #listing-details-view.mrp-style-area .mrp-area-stats div:last-child {
+    border: 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-area-stats dl {
+    padding: 10px;
+    margin: 2px 0px 0px 0px;
+    display: flex;
+    align-items: center;
+  }
+  #listing-details-view.mrp-style-area .mrp-area-stats dd {
+    color: var(--g-accent-color,#428bca);
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 1.3;
+    flex-grow: 1;
+    text-align: right;
+  }
+  #listing-details-view.mrp-style-area .mrp-area-stats dt {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 1.3;
+  }
+  #listing-details-view.mrp-style-area .mrp-area-stats .mrp-area-stats-footnote {
+    font-size: small;
+    line-height: 120%;
+    box-sizing: border-box;
+    padding: 15px;
+  }
+  #listing-details-view.mrp-style-area .mrp-area-stats .mrp-area-stats-footnote strong {
+    font-size: inherit;
+  }
+  #listing-details-view.mrp-style-area .mrp-area-stats .mrp-area-stats-save-search {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--g-accent-color,#428bca);
+  }
+  #listing-details-view.mrp-style-area .mrp-area-stats .mrp-area-stats-save-search a {
+    font-size: 22px;
+    text-transform: uppercase;
+    color: #fff !important;
+  }
+  /* ================================================================== */
+  /* ================ SIZES ================== */
+  /* ================================================================== */
+  #listing-details-view.mrp-style-area.xs .mrp-listing-quick-actions.top {
+    position: relative;
+    float: none;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-quick-actions.top > span {
+    line-height: 32px;
+    width: 32px;
+    font-size: 24px;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-quick-actions.top.top {
+    text-align: left;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-quick-actions.top > span.details-ribbon {
+    width: auto;
+    font-size: 15px;
+    vertical-align: top;
+    color: #fff;
+    font-family: open sans;
+    padding: 0px 8px 0px 8px;
+    margin-right: 2px;
+    pointer-events: none;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-quick-actions.top > span.details-ribbon.ribbon-custom:after {
+    content: attr(data-banner-message) " ";
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-quick-actions.top > span.details-ribbon.ribbon-custom {
+    background-color: #00a136;
+    background-color: attr(data-banner-color color);
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-quick-actions.top > span.details-ribbon.ribbon-new {
+    background-color: #00a136;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-quick-actions.top > span.details-ribbon.ribbon-new:after {
+    content: "NEW LISTING";
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-quick-actions.top > span.details-ribbon.ribbon-pending {
+    background-color: #f80000;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-quick-actions.top > span.details-ribbon.ribbon-pending:after {
+    content: "PENDING";
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-quick-actions.top > span.details-ribbon.ribbon-contingent {
+    background-color: #f80000;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-quick-actions.top > span.details-ribbon.ribbon-contingent:after {
+    content: "CONTINGENT";
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-quick-actions.top > span.details-ribbon.ribbon-sold {
+    background-color: #f80000;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-quick-actions.top > span.details-ribbon.ribbon-sold:after {
+    content: "SOLD";
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-quick-actions.top > span.details-ribbon.ribbon-rented {
+    background-color: #f80000;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-quick-actions.top > span.details-ribbon.ribbon-rented:after {
+    content: "RENTED";
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-quick-actions.top > span.details-ribbon.ribbon-leased {
+    background-color: #f80000;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-quick-actions.top > span.details-ribbon.ribbon-leased:after {
+    content: "LEASED";
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-quick-actions.top > span.details-ribbon.ribbon-price-drop {
+    background-color: #ff6600;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-quick-actions.top > span.details-ribbon.ribbon-price-drop:before {
+    content: attr(data-banner-message) " ";
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-details-listing-container {
+    zoom: 1;
+    position: relative;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-details-listing-container:before,
+  #listing-details-view.mrp-style-area.xs .mrp-details-listing-container:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-details-listing-container:after {
+    clear: both;
+  }
+  #listing-details-view.mrp-style-area.xs .post-image-wrapper {
+    zoom: 1;
+    padding-top: 20px;
+  }
+  #listing-details-view.mrp-style-area.xs .post-image-wrapper:before,
+  #listing-details-view.mrp-style-area.xs .post-image-wrapper:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  #listing-details-view.mrp-style-area.xs .post-image-wrapper:after {
+    clear: both;
+  }
+  #listing-details-view.mrp-style-area.xs .mid-content {
+    position: relative;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-details-vow-toolbar-wrapper {
+    position: relative;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-details-vow-toolbar-wrapper .mrp-vow-toolbar-non-auth,
+  #listing-details-view.mrp-style-area.xs .mrp-details-vow-toolbar-wrapper .mrp-vow-toolbar-auth {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-details-vow-toolbar-wrapper .mrp-vow-toolbar-auth {
+    margin-top: 7px;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-details-tab-content {
+    zoom: 1;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-details-tab-content:before,
+  #listing-details-view.mrp-style-area.xs .mrp-listing-details-tab-content:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-details-tab-content:after {
+    clear: both;
+  }
+  #listing-details-view.mrp-style-area.xs .sidebar-map,
+  #listing-details-view.mrp-style-area.xs .sidebar-small-map {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+  }
+  #listing-details-view.mrp-style-area.xs h1.mrp-listing-title,
+  #listing-details-view.mrp-style-area.xs h2.mrp-listing-price-info {
+    font-size: 22px;
+    width: 100%;
+  }
+  #listing-details-view.mrp-style-area.xs h1.mrp-listing-title .sub-location {
+    line-height: 18px;
+  }
+  #listing-details-view.mrp-style-area.xs h1.mrp-listing-title .sub-location > span {
+    line-height: 18px;
+    font-size: 13px;
+  }
+  #listing-details-view.mrp-style-area.xs h2.mrp-listing-price-info {
+    text-align: left;
+    margin-top: 5px;
+  }
+  #listing-details-view.mrp-style-area.xs h2.mrp-listing-price-info .sub-info {
+    line-height: 10px;
+  }
+  #listing-details-view.mrp-style-area.xs h2.mrp-listing-price-info .sub-info > span {
+    line-height: 1;
+    font-size: 13px;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-photo-other .mrp-listing-photo-thumb {
+    width: 25%;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-photo-other .mrp-listing-photo-thumb:nth-child(4) .more {
+    display: block;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-listing-photo-other .mrp-listing-photo-thumb:nth-child(4) .more:after {
+    font-size: 18px;
+    font-size: 5vw;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-open-house-full-section .expand-all,
+  #listing-details-view.mrp-style-area.xs .mrp-open-house-full-section .collapse-all {
+    text-align: center;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-open-house-full-section .mrp-open-house-item {
+    margin: 0 auto;
+  }
+  #listing-details-view.mrp-style-area.xs .mrp-open-house-full-section .mrp-open-house-item .text span,
+  #listing-details-view.mrp-style-area.xs .mrp-open-house-full-section .mrp-open-house-item .time span {
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-links-section .calendar-controls h5 {
+    text-transform: uppercase;
+    margin-top: 1rem;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-links-section .calendar-controls .viewing-type label {
+    vertical-align: middle;
+    margin-right: 0.8rem;
+    margin-bottom: 1.2rem;
+    display: inline-grid;
+    align-items: center;
+    align-content: center;
+    grid-template-columns: min-content 1fr;
+    grid-gap: 0.4rem;
+    line-height: 0;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-links-section .calendar-controls .viewing-type label input {
+    vertical-align: middle;
+    margin: 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-links-section .calendar-controls .text {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    margin-top: 20px;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-links-section .calendar-controls .suggested-dates {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.4rem;
+    align-items: center;
+    align-content: center;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-links-section .calendar-controls .suggested-dates .suggested-date-outer {
+    display: block;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-size: 0.75rem;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-links-section .calendar-controls .suggested-dates .suggested-date-outer input {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-links-section .calendar-controls .suggested-dates .suggested-date-outer .suggested-date {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #999;
+    border-radius: 5px;
+    padding: 10px;
+    height: 100%;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-links-section .calendar-controls .suggested-dates .suggested-date-outer .suggested-date .day,
+  #listing-details-view.mrp-style-area .mrp-listing-links-section .calendar-controls .suggested-dates .suggested-date-outer .suggested-date .weekday,
+  #listing-details-view.mrp-style-area .mrp-listing-links-section .calendar-controls .suggested-dates .suggested-date-outer .suggested-date .month {
+    font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-links-section .calendar-controls .suggested-dates .suggested-date-outer .suggested-date .day {
+    font-size: 140%;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-links-section .calendar-controls .suggested-dates .suggested-date-outer.asap .suggested-date {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-links-section .calendar-controls .suggested-dates .suggested-date-outer.asap .suggested-date svg {
+    width: 1.375rem;
+    height: 1.375rem;
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-links-section .calendar-controls .suggested-dates .suggested-date-outer input:checked ~ .suggested-date {
+    border-color: #0f6782;
+    background-color: #cddbf1;
+  }
+  #listing-details-view.mrp-style-area .suggested-dates {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  #listing-details-view.mrp-style-area .mrp-listing-links-section .calendar-controls {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area.sm .mrp-open-house-full-section {
+    grid-template-columns: 1fr 1fr;
+  }
+  #listing-details-view.mrp-style-area.sm .mrp-open-house-full-section .expand-all,
+  #listing-details-view.mrp-style-area.sm .mrp-open-house-full-section .collapse-all {
+    text-align: left;
+  }
+  #listing-details-view.mrp-style-area.sm .mrp-open-house-full-section .mrp-open-house-item {
+    margin: 0;
+  }
+  #listing-details-view.mrp-style-area.sm .mrp-open-house-full-section .mrp-open-house-item .text span,
+  #listing-details-view.mrp-style-area.sm .mrp-open-house-full-section .mrp-open-house-item .time span {
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  #listing-details-view.mrp-style-area.sm .mrp-listing-details-tabs > li {
+    margin-right: 12px;
+  }
+  #listing-details-view.mrp-style-area.sm .mrp-details-sm-share-container::before {
+    content: "Share this listing:";
+  }
+  #listing-details-view.mrp-style-area.sm .mrp-details-sm-share-container.quick-actions::before {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area.sm .mrp-listing-details-page-navigation .prev-nav,
+  #listing-details-view.mrp-style-area.sm .mrp-listing-details-page-navigation .next-nav {
+    width: auto;
+  }
+  #listing-details-view.mrp-style-area.sm h1.mrp-listing-title,
+  #listing-details-view.mrp-style-area.sm h2.mrp-listing-price-info {
+    font-size: 26px;
+    width: 50%;
+    margin-top: 20px;
+  }
+  #listing-details-view.mrp-style-area.sm h1.mrp-listing-title .sub-location > span {
+    line-height: 20px;
+    font-size: 14px;
+  }
+  #listing-details-view.mrp-style-area.sm h2.mrp-listing-price-info {
+    text-align: right;
+  }
+  #listing-details-view.mrp-style-area.sm h2.mrp-listing-price-info .sub-info > span {
+    line-height: 1;
+    font-size: 14px;
+  }
+  #listing-details-view.mrp-style-area.sm h2.mrp-listing-price-info .sub-info > span .highlight {
+    font-size: 14px;
+  }
+  #listing-details-view.mrp-style-area.sm .mrp-listing-photo-other .mrp-listing-photo-thumb {
+    width: 20%;
+  }
+  #listing-details-view.mrp-style-area.sm .mrp-listing-photo-other .mrp-listing-photo-thumb:nth-child(4) .more {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area.sm .mrp-listing-photo-other .mrp-listing-photo-thumb:nth-child(5) .more {
+    display: block;
+  }
+  #listing-details-view.mrp-style-area.sm .mrp-area-stats.bottom {
+    column-count: 1;
+  }
+  #listing-details-view.mrp-style-area.sm .mrp-area-stats.bottom .stat-line {
+    width: 100%;
+    padding: 0;
+  }
+  #listing-details-view.mrp-style-area.sm .mrp-area-stats.bottom .mrp-area-stats-data {
+    column-count: 2;
+  }
+  #listing-details-view.mrp-style-area.sm .mrp-area-stats.bottom .stat-line {
+    display: inline-block;
+    padding: 0 10px;
+  }
+  #listing-details-view.mrp-style-area.sm .mrp-area-stats.bottom dl {
+    padding: 8px;
+  }
+  #listing-details-view.mrp-style-area.sm .mrp-area-stats.bottom dd,
+  #listing-details-view.mrp-style-area.sm .mrp-area-stats.bottom dt {
+    font-size: 16px;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-listing-title {
+    font-size: 22px;
+    line-height: 120%;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-details-sm-share-container.standalone {
+    margin-top: -20px;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-details-sm-share-container.standalone::before {
+    content: "";
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-details-sm-share-container.standalone .menu-handle {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-details-sm-share-container.standalone .details-sm-share-container-inner {
+    display: block;
+    position: static;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-details-sm-share-container.standalone .details-sm-share-container-inner::before {
+    content: "";
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-details-sm-share-container.standalone .details-sm-share-container-inner .details-sm-share-item {
+    display: inline-block;
+    margin: 0 0 0 10px;
+    cursor: pointer;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-details-sm-share-container.standalone .details-sm-share-container-inner .details-sm-share-item a {
+    display: inline-block;
+    font-size: 0;
+    width: 34px;
+    height: 34px;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-details-sm-share-container.standalone .details-sm-share-container-inner .details-sm-share-item a::before,
+  #listing-details-view.mrp-style-area.sm560 .mrp-details-sm-share-container.standalone .details-sm-share-container-inner .details-sm-share-item a::after {
+    content: "";
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-details-sm-share-container.standalone .details-sm-share-container-inner .details-sm-share-item.mrp-twitter-share {
+    background-image: url("/wps/img/ng/v2/twitter-share.png");
+    background-repeat: no-repeat;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-details-sm-share-container.standalone .details-sm-share-container-inner .details-sm-share-item.mrp-facebook-share {
+    background-image: url("/wps/img/ng/v2/facebook-share.png");
+    background-repeat: no-repeat;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-details-sm-share-container.standalone .details-sm-share-container-inner .details-sm-share-item.mrp-gplus-share {
+    background-image: url("/wps/img/ng/v2/google-share.png");
+    background-repeat: no-repeat;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-details-sm-share-container.standalone .details-sm-share-container-inner .details-sm-share-item.mrp-pinterest-share {
+    background-image: url("/wps/img/ng/v2/pinterest-share.png");
+    background-repeat: no-repeat;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-details-sm-share-container.standalone .details-sm-share-container-inner .details-sm-share-item.mrp-url-share {
+    background-image: url("/wps/img/ng/v2/url-share.png");
+    background-repeat: no-repeat;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-details-sm-share-container.standalone .details-sm-share-container-inner .details-sm-share-item:first-child {
+    margin: 0;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-listing-details-tabs {
+    font-size: 22px;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-listing-maps .mrp-listing-walkscore-container {
+    padding-bottom: 60%;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-photo-thumbs-section {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    height: 80px;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-photo-thumbs-section > .inner {
+    white-space: nowrap;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-transition: left .5s ease-out 0s;
+    -moz-transition: left .5s ease-out 0s;
+    -ms-transition: left .5s ease-out 0s;
+    -o-transition: left .5s ease-out 0s;
+    transition: left .5s ease-out 0s;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-photo-thumbs-section .slider-left,
+  #listing-details-view.mrp-style-area.sm560 .mrp-photo-thumbs-section .slider-right {
+    z-index: 10;
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: #009688;
+    color: white;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    border-radius: 50%;
+    box-shadow: 0 0 15px white;
+    font-size: 30px;
+    font-family: "Material-Design-Icons";
+    cursor: pointer;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-photo-thumbs-section .slider-left {
+    left: -30px;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-photo-thumbs-section .slider-left::before {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    content: "\e8a8";
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-photo-thumbs-section .slider-right {
+    right: -30px;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-photo-thumbs-section .slider-right::before {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    content: "\e8a9";
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-photo-thumbs-section .mrp-small-photo-thumb-outer {
+    display: inline-block;
+    margin-right: 5px;
+  }
+  #listing-details-view.mrp-style-area.sm560 .mrp-photo-thumbs-section .mrp-small-photo-thumb-outer img {
+    height: 80px;
+    width: auto;
+    cursor: pointer;
+  }
+  #listing-details-view.mrp-style-area.sm620 .mrp-listing-links-section > ul {
+    grid-template-columns: 1fr;
+  }
+  #listing-details-view.mrp-style-area.sm620 .mrp-listing-links-section .calendar-controls {
+    display: block;
+  }
+  #listing-details-view.mrp-style-area.sm620 .mrp-listing-quick-actions.top {
+    float: right;
+    margin-top: 10px;
+  }
+  #listing-details-view.mrp-style-area.sm620 .mrp-listing-quick-actions.top.top {
+    text-align: right;
+  }
+  #listing-details-view.mrp-style-area.sm620 .post-image-wrapper {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #listing-details-view.mrp-style-area.sm620 .mrp-listing-price-container {
+    font-size: 36px;
+    text-align: left;
+  }
+  #listing-details-view.mrp-style-area.sm620 .mrp-listing-links-section .market-report-button {
+    display: block;
+  }
+  #listing-details-view.mrp-style-area.sm620 .mrp-open-house-top-section {
+    padding-bottom: 0;
+  }
+  #listing-details-view.mrp-style-area.sm620 .mrp-open-house-full-section {
+    display: block;
+    float: right;
+    width: 220px;
+  }
+  #listing-details-view.mrp-style-area.sm620 .mrp-open-house-full-section .expand-all,
+  #listing-details-view.mrp-style-area.sm620 .mrp-open-house-full-section .collapse-all {
+    text-align: center;
+  }
+  #listing-details-view.mrp-style-area.sm620 .post-image-sidebar {
+    display: block;
+    float: right;
+    min-height: 300px;
+    width: 220px;
+  }
+  #listing-details-view.mrp-style-area.sm620 .post-image-sidebar section {
+    padding: 10px;
+    background-color: #efefef;
+  }
+  #listing-details-view.mrp-style-area.sm620 .post-image-sidebar section.mrp-listing-small-map {
+    padding: 0;
+    margin-bottom: 20px;
+    background-color: transparent;
+  }
+  #listing-details-view.mrp-style-area.sm620 .post-image-sidebar section.mrp-listing-links-section {
+    padding: 0;
+    background-color: transparent;
+  }
+  #listing-details-view.mrp-style-area.sm620 .post-image-sidebar section.mrp-listing-links-section li {
+    display: block;
+    width: auto;
+    float: none;
+    text-align: left;
+    padding-left: 20px;
+  }
+  #listing-details-view.mrp-style-area.sm620 .post-image-sidebar section.mrp-listing-links-section li:nth-child(2n+2) {
+    margin-left: 0;
+  }
+  #listing-details-view.mrp-style-area.sm620 .post-image-sidebar section.mrp-owner-contact-container {
+    padding: 0;
+    background-color: transparent;
+  }
+  #listing-details-view.mrp-style-area.sm620 .post-image-sidebar section.mrp-owner-contact-container .listing-contact-info-wrapper {
+    font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+  }
+  #listing-details-view.mrp-style-area.sm620 .mrp-listing-info-container {
+    min-height: 800px;
+  }
+  #listing-details-view.mrp-style-area.sm620 .post-image-content {
+    width: calc( 100% - 235px );
+    float: left;
+  }
+  #listing-details-view.mrp-style-area.sm620 .post-image-content .mrp-details-main-summary {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area.sm620 .post-image-content .mrp-listing-links-section {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area.sm620 .mrp-owner-contact-container.multiple {
+    zoom: 1;
+  }
+  #listing-details-view.mrp-style-area.sm620 .mrp-owner-contact-container.multiple:before,
+  #listing-details-view.mrp-style-area.sm620 .mrp-owner-contact-container.multiple:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  #listing-details-view.mrp-style-area.sm620 .mrp-owner-contact-container.multiple:after {
+    clear: both;
+  }
+  #listing-details-view.mrp-style-area.sm620 .mrp-owner-contact-container.multiple .listing-contact-info {
+    width: calc( 50% - 5px );
+    float: left;
+  }
+  #listing-details-view.mrp-style-area.sm620 .mrp-owner-contact-container.multiple .listing-contact-info:first-child {
+    margin-right: 10px;
+  }
+  #listing-details-view.mrp-style-area.sm620 .mrp-listing-main-image-container.empty {
+    padding-bottom: 0;
+    height: 250px;
+  }
+  #listing-details-view.mrp-style-area.sm620 .mrp-area-stats.bottom {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area.md .post-image-sidebar,
+  #listing-details-view.mrp-style-area.md .mrp-open-house-full-section {
+    width: 250px;
+  }
+  #listing-details-view.mrp-style-area.md .post-image-content {
+    width: calc( 100% - 265px );
+  }
+  #listing-details-view.mrp-style-area.md .mrp-vow-login-with-external-id {
+    float: none;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+  } /*
+          .mrp-listing-photo-other {
+              .mrp-listing-photo-thumb {
+                  width: 16.6%;
+                  
+                  &:nth-child(4) {
+                      .more {
+                          display: none;
+                      }
+                  }
+                  
+                  &:nth-child(5) {
+                      .more {
+                          display: none;
+                      }
+                  }
+                  &:nth-child(6) {
+                      .more {
+                          display: block;
+                      }
+                  }
+              }				
+          }
+          */
+  #listing-details-view.mrp-style-area.lg .mrp-listing-details-tab-content > .mid-content {
+    max-width: 900px;
+  }
+  #listing-details-view.mrp-style-area.xl .mrp-listing-links-section .calendar-controls {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area.xl .mrp-listing-details-tab-content {
+    min-height: 2200px;
+  }
+  #listing-details-view.mrp-style-area.xl .mid-content {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  #listing-details-view.mrp-style-area.xl section.mrp-listing-small-map {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area.xl .mrp-details-vow-toolbar-wrapper {
+    -webkit-transform: translate(-150px, 0);
+    -moz-transform: translate(-150px, 0);
+    -ms-transform: translate(-150px, 0);
+    -o-transform: translate(-150px, 0);
+    transform: translate(-150px, 0);
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar {
+    display: block;
+    width: calc( 100% - 920px );
+    min-height: 1300px;
+    margin-top: 0px;
+    position: absolute;
+    right: 0;
+    top: 20px;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section {
+    background-color: #efefef;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.placeholder {
+    line-height: 300px;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.mrp-listing-larger-map {
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-contact-form,
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-mortgage-calc-form {
+    background-color: #efefef;
+    padding: 20px;
+    text-align: left;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-contact-form h1,
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-mortgage-calc-form h1,
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-contact-form h2,
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-mortgage-calc-form h2 {
+    padding: 0;
+    margin: 0;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-contact-form .mrp-form-title-main,
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-mortgage-calc-form .mrp-form-title-main {
+    font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-contact-form .mrp-listing-form-container,
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-mortgage-calc-form .mrp-listing-form-container {
+    background-color: transparent;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-contact-form .form-group,
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-mortgage-calc-form .form-group {
+    padding: 0;
+    margin: 0px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-contact-form textarea,
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-mortgage-calc-form textarea {
+    height: 150px;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-contact-form .mrp-popup-button-bar,
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-mortgage-calc-form .mrp-popup-button-bar {
+    text-align: right;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-contact-form .mrp-form-error,
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-mortgage-calc-form .mrp-form-error {
+    margin-bottom: 10px;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-contact-form label.control-label,
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-mortgage-calc-form label.control-label {
+    text-align: left;
+    width: auto;
+    padding: 7px 0 2px 0;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-contact-form .origin-disclaimer,
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-mortgage-calc-form .origin-disclaimer {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-contact-form .control-error,
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-mortgage-calc-form .control-error {
+    margin-left: 0;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-mortgage-calc-form .mortgage-calculate-button {
+    text-align: right;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-mortgage-calc-form .mortgage-calculation {
+    border-collapse: collapse;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-mortgage-calc-form .mortgage-calculation tr {
+    border-bottom: 1px solid #ddd;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-mortgage-calc-form .mortgage-calculation tr:last-child {
+    border-bottom: 0;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-mortgage-calc-form .mortgage-calculation td {
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-mortgage-calc-form .mortgage-calculation td:nth-child(1) {
+    font-weight: bold;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-mortgage-calc-form .mortgage-calculation td:nth-child(2) {
+    padding-left: 10px;
+    border-left: 1px solid #ddd;
+    font-weight: normal;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar > section.inline-mortgage-calc-form .mortgage-calculation {
+    margin: 0;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar .mrp-listing-details-page-navigation {
+    margin-bottom: 16px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  #listing-details-view.mrp-style-area.xl .large-sidebar .mrp-listing-details-page-navigation > a {
+    margin: 0;
+    padding: 0 10px;
+    height: 34px;
+    line-height: 34px;
+    width: calc(50% - 5px);
+  }
+  #listing-details-view.mrp-style-area.xl .post-image-sidebar .mrp-ll-sidebar {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-full-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    border: 1px solid #ddd;
+    padding: 20px 20px 0px 20px;
+    margin-bottom: 20px;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-full-section .expand-all,
+  #listing-details-view.mrp-style-area .mrp-open-house-full-section .collapse-all {
+    padding-bottom: 20px;
+    display: block;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-top-section {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 0.5rem;
+    align-items: center;
+    justify-content: start;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-top-section .text {
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-top-section .date-time {
+    grid-column-start: 1;
+    grid-row-start: 2;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-top-section .add-open-house-button {
+    grid-column-start: 1;
+    grid-row-start: 3;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-top-section .icon-container {
+    grid-column-start: 2;
+    grid-row-span: 3;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-top-section.mrp-open-house-top-section *,
+  #listing-details-view.mrp-style-area .mrp-open-house-full-section > .mrp-open-house-item.mrp-open-house-top-section * {
+    font-family: Trebuchet MS;
+    font-weight: bold;
+    line-height: 100%;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-top-section.mrp-open-house-item *,
+  #listing-details-view.mrp-style-area .mrp-open-house-full-section > .mrp-open-house-item.mrp-open-house-item * {
+    font-family: Trebuchet MS;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-top-section .icon-container,
+  #listing-details-view.mrp-style-area .mrp-open-house-full-section > .mrp-open-house-item .icon-container {
+    grid-row-end: span 2;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-top-section .icon-container .icon,
+  #listing-details-view.mrp-style-area .mrp-open-house-full-section > .mrp-open-house-item .icon-container .icon {
+    text-decoration: none;
+    display: block;
+    width: 35px;
+    height: auto;
+    vertical-align: middle;
+    fill: #666;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-top-section .icon-container .icon.on,
+  #listing-details-view.mrp-style-area .mrp-open-house-full-section > .mrp-open-house-item .icon-container .icon.on {
+    fill: green !important;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-top-section.mrp-open-house-top-section .text,
+  #listing-details-view.mrp-style-area .mrp-open-house-full-section > .mrp-open-house-item.mrp-open-house-top-section .text {
+    text-transform: uppercase;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-top-section .text .more a,
+  #listing-details-view.mrp-style-area .mrp-open-house-full-section > .mrp-open-house-item .text .more a {
+    display: inline-block;
+    border-left: 1px solid #999;
+    margin-left: 5px;
+    padding-left: 5px;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-top-section .desc,
+  #listing-details-view.mrp-style-area .mrp-open-house-full-section > .mrp-open-house-item .desc {
+    font-size: 70%;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-top-section.mrp-open-house-item,
+  #listing-details-view.mrp-style-area .mrp-open-house-full-section > .mrp-open-house-item.mrp-open-house-item {
+    padding-bottom: 20px;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-top-section .add-open-house-button,
+  #listing-details-view.mrp-style-area .mrp-open-house-full-section > .mrp-open-house-item .add-open-house-button {
+    white-space: nowrap;
+    padding: 5px 0;
+    position: relative;
+    padding-right: 10px;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-top-section .add-open-house-button span.icon,
+  #listing-details-view.mrp-style-area .mrp-open-house-full-section > .mrp-open-house-item .add-open-house-button span.icon {
+    display: inline-block;
+    width: 18px;
+    height: auto;
+    vertical-align: middle;
+    fill: #666;
+    margin-right: 5px;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-top-section .add-open-house-button .cal-popup,
+  #listing-details-view.mrp-style-area .mrp-open-house-full-section > .mrp-open-house-item .add-open-house-button .cal-popup {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 0 10px #333;
+    background-color: white;
+    z-index: 100;
+    display: none;
+    padding: 10px 0;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-top-section .add-open-house-button .cal-popup > div,
+  #listing-details-view.mrp-style-area .mrp-open-house-full-section > .mrp-open-house-item .add-open-house-button .cal-popup > div {
+    padding: 10px 20px;
+  }
+  #listing-details-view.mrp-style-area .mrp-open-house-top-section .add-open-house-button .cal-popup > div a,
+  #listing-details-view.mrp-style-area .mrp-open-house-full-section > .mrp-open-house-item .add-open-house-button .cal-popup > div a {
+    text-decoration: none;
+    color: #666;
+    text-transform: uppercase;
+  }
+  .mrp-popup.mrp-ll-popup {
+    width: 100%;
+    min-height: 100%;
+    top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+  .mrp-popup.mrp-ll-popup .mrp-ll-widget {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .mrp-popup.mrp-ll-popup .mrp-ll-widget .ll-list {
+    overflow: auto;
+  }
+  .mrp-popup.mrp-ll-popup .mrp-ll-widget .ll-content {
+    max-height: none;
+  }
+  .mrp-popup.mrp-ll-popup #ll-map .leaflet-top.leaflet-right {
+    margin-top: 60px;
+  }
+  /**********************************************************/
+  /************************ OPTIONS *************************/
+  /**********************************************************/
+  .mrp-sm-details-sidebar-left #listing-details-view.mrp-style-area .post-image-sidebar {
+    float: left;
+  }
+  .mrp-sm-details-sidebar-left #listing-details-view.mrp-style-area .post-image-content {
+    float: right;
+  }
+  .mrp-lg-details-sidebar-left #listing-details-view.mrp-style-area .large-sidebar {
+    float: left;
+  }
+  .mrp-lg-details-sidebar-left #listing-details-view.mrp-style-area .mrp-listing-details-tab-content {
+    margin-left: 300px;
+  }
+  .mrp-lg-details-sidebar-left #listing-details-view.mrp-style-area .top-content {
+    margin-left: 300px;
+  }
+  /**********************************************************/
+  /*********************** COMPLIANCE ***********************/
+  /**********************************************************/
+  #listing-details-view.mrp-style-area .region-DDF .mrp-listing-photo-other .mrp-listing-photo-thumb .more,
+  #listing-details-view.mrp-style-area .region-ALBERTA .mrp-listing-photo-other .mrp-listing-photo-thumb .more {
+    opacity: 1.0;
+  }
+  #listing-details-view.mrp-style-area .region-DDF .listing-main-photo-banner,
+  #listing-details-view.mrp-style-area .region-ALBERTA .listing-main-photo-banner {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area .region-DDF .mrp-listing-main-image-container {
+    padding: 0 0 66.6%;
+  }
+  #listing-details-view.mrp-style-area .region-DDF .mrp-listing-main-image-container img.mrp-listing-main-image {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+  #listing-details-view.mrp-style-area .region-DDF .mrp-listing-photo-thumb img {
+    transform: none;
+    left: 0;
+    top: 0;
+    max-height: none;
+  }
+  #listing-details-view.mrp-style-area .region-VICTORIA .mrp-listing-photo-other .mrp-listing-photo-thumb img,
+  #listing-details-view.mrp-style-area .region-VICTORIA .related-image .related-photo {
+    left: initial;
+    top: initial;
+    bottom: 0;
+    right: 0;
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  #listing-details-view.mrp-style-area .region-VICTORIA .mrp-listing-main-image-container {
+    height: auto;
+    padding-bottom: 0px;
+  }
+  #listing-details-view.mrp-style-area .region-VICTORIA .mrp-listing-main-image-container .inner {
+    position: relative;
+  }
+  #listing-details-view.mrp-style-area .region-VICTORIA .mrp-listing-main-image-container .inner img.mrp-listing-main-image {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  #listing-details-view.mrp-style-area .cal-listing-credit {
+    border: 1px solid #ddd;
+    padding: 20px 20px 20px 20px;
+    margin-bottom: 20px;
+  }
+  #listing-details-view.mrp-style-area .cal-listing-credit .cal-listing-credit-title {
+    font-weight: bold;
+  }
+  /* hoodq */
+  #listing-details-view.mrp-style-area .hoodq-container {
+    margin: 1rem 0 2rem 0;
+  }
+  #listing-details-view.mrp-style-area .post-image-sidebar .hq-ah--data-container {
+    flex-direction: column;
+  }
+  #listing-details-view.mrp-style-area .post-image-sidebar .hq-ah--data-container > div {
+    width: auto;
+  }
+  #listing-details-view.mrp-style-area .hq-ah--powered-by-container {
+    max-height: 2rem;
+  }
+  #listing-details-view.mrp-style-area.sm620 .hoodq-container.bottom {
+    display: none;
+  }
+  #listing-details-view.mrp-style-area.xs .hoodq-container.bottom .hq-ah--data-container {
+    flex-direction: column;
+  }
+  #listing-details-view.mrp-style-area.xs .hoodq-container.bottom .hq-ah--data-container > div {
+    width: auto;
+  }
+  #listing-details-view.mrp-style-area.sm .hoodq-container.bottom .hq-ah--data-container {
+    flex-direction: row;
+  }
+  #listing-details-view.mrp-style-area.sm .hoodq-container.bottom .hq-ah--data-container > div {
+    width: 0;
+  }
+  /* end: hoodq */
+  #listing-details-view.mrp-style-area .mrp-details-listing-container.region-ALBERTA .top-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #listing-details-view.mrp-style-area .mrp-details-listing-container.region-ALBERTA .top-content > * {
+    width: 100%;
+  }
+  #listing-details-view.mrp-style-area.sm620 .mrp-details-listing-container.region-ALBERTA .top-content > * {
+    width: 50%;
+  }
+  #listing-details-view.mrp-style-area.sm620 .mrp-details-listing-container.region-ALBERTA .top-content > .mrp-open-house-top-section {
+    width: 100%;
+  }
+  #listing-details-view.mrp-style-area#listing-details-view.mrp-style-area .mrp-details-listing-container.region-ALBERTA .mrp-listing-attribution-container {
+    order: -1;
+    width: 100%;
+    text-align: left;
+  }
+  #listing-details-view.mrp-style-area.sm .mrp-details-listing-container.region-ALBERTA h2.mrp-listing-price-info {
+    text-align: left;
+  }
+  #listing-details-view.mrp-style-area.sm620 .mrp-details-listing-container.region-ALBERTA h2.mrp-listing-price-info {
+    text-align: right;
+  }
+  #listing-details-view.mrp-style-area.sm620 .mrp-details-listing-container.region-ALBERTA .mrp-listing-quick-actions {
+    order: 99;
+  }
+  /* VICTORIA and VI hiding stuff on details pages */
+  #listing-details-view .region-VI.status-SOLD.region-VI.status-SOLD .inline-mortgage-calc-form,
+  #listing-details-view .region-VICTORIA.status-SOLD.region-VICTORIA.status-SOLD .inline-mortgage-calc-form,
+  #listing-details-view .region-VI.status-SOLD.region-VI.status-SOLD .mortgage-calc-link-outer,
+  #listing-details-view .region-VICTORIA.status-SOLD.region-VICTORIA.status-SOLD .mortgage-calc-link-outer,
+  #listing-details-view .region-VI.status-SOLD.region-VI.status-SOLD .send-listing-link-outer,
+  #listing-details-view .region-VICTORIA.status-SOLD.region-VICTORIA.status-SOLD .send-listing-link-outer,
+  #listing-details-view .region-VI.status-SOLD.region-VI.status-SOLD .mrp-listing-quick-actions .share,
+  #listing-details-view .region-VICTORIA.status-SOLD.region-VICTORIA.status-SOLD .mrp-listing-quick-actions .share,
+  #listing-details-view .region-VI.status-SOLD.region-VI.status-SOLD .mrp-listing-quick-actions .mortgage,
+  #listing-details-view .region-VICTORIA.status-SOLD.region-VICTORIA.status-SOLD .mrp-listing-quick-actions .mortgage,
+  #listing-details-view .region-VI.status-SOLD.region-VI.status-SOLD .floor-plans-pane-outer,
+  #listing-details-view .region-VICTORIA.status-SOLD.region-VICTORIA.status-SOLD .floor-plans-pane-outer,
+  #listing-details-view .region-VI.status-SOLD.region-VI.status-SOLD .videos-pane-outer,
+  #listing-details-view .region-VICTORIA.status-SOLD.region-VICTORIA.status-SOLD .videos-pane-outer {
+    display: none;
+  }

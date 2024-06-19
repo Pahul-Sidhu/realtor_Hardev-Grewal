@@ -144,7 +144,6 @@ function parseArea(areaString) {
 }
 
 async function fetchListings() {
-  showSpinner();
   try {
     const response = await fetch("http://localhost:8000/getlistings");
     if (!response.ok) {
@@ -162,6 +161,7 @@ async function fetchListings() {
       property.price = parsePrice(property.price);
       property.floorArea = parseArea(property.floorArea);
     });
+    console.log("Listings fetched:", listings);
   } catch (error) {
     console.error("Error:", error);
     throw error; // rethrow the error so it can be handled by the caller
@@ -191,18 +191,9 @@ function sortProperties(properties, sortOption) {
   }
 }
 
-document
-  .querySelector(".search-results-sort-by-select")
-  .addEventListener("change", (event) => {
-    currentSortOption = event.target.value;
-    currentPage = 1; // Reset to the first page whenever sorting changes
-    appendProperties(); // Call with the default "all" to refresh the listings
-    document.getElementById("RED").classList.remove("selected");
-    document.getElementById("REA").classList.remove("selected");
-    document.getElementById("all").classList.add("selected");
-  });
-
 async function appendProperties(type = "all") {
+  var loadingDiv = document.getElementById("loading");
+  showSpinner(loadingDiv);
   try {
     if (listings.attached.length === 0 || listings.detached.length === 0) {
       await fetchListings();
@@ -226,7 +217,7 @@ async function appendProperties(type = "all") {
     const listingsContainer = document.getElementById("results-container");
     listingsContainer.innerHTML = "";
 
-    hideSpinner();
+    hideSpinner(loadingDiv);
     paginatedListings.forEach((property) => {
       const li = createListingItem(property);
       listingsContainer.appendChild(li);
@@ -275,65 +266,12 @@ function renderPaginationControls(totalItems, type) {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  appendProperties();
-
-  document.getElementById("REA").addEventListener("click", () => {
-    document.getElementById("REA").classList.add("selected");
-    document.getElementById("RED").classList.remove("selected");
-    document.getElementById("all").classList.remove("selected");
-    currentPage = 1; // Reset to first page
-    appendProperties("REA");
-    currentSortOption = "";
-    document.querySelector(".search-results-sort-by-select").value = "";
-    const event = new Event("change");
-    sortSelect.dispatchEvent(event);
-  });
-
-  document.getElementById("RED").addEventListener("click", () => {
-    document.getElementById("RED").classList.add("selected");
-    document.getElementById("REA").classList.remove("selected");
-    document.getElementById("all").classList.remove("selected");
-    currentPage = 1; // Reset to first page
-    appendProperties("RED");
-    currentSortOption = "";
-    document.querySelector(".search-results-sort-by-select").value = "";
-    const event = new Event("change");
-    sortSelect.dispatchEvent(event);
-  });
-
-  document.getElementById("all").addEventListener("click", () => {
-    document.getElementById("RED").classList.remove("selected");
-    document.getElementById("REA").classList.remove("selected");
-    document.getElementById("all").classList.add("selected");
-    currentPage = 1; // Reset to first page
-    appendProperties();
-    currentSortOption = "";
-    document.querySelector(".search-results-sort-by-select").value = "";
-    const event = new Event("change");
-    sortSelect.dispatchEvent(event);
-  });
-
-  document.getElementById("content-well").addEventListener("click", (event) => {
-    const containers = document.querySelectorAll(".mrp-listing-links-section");
-    if(containers){
-        for (let i = 0; i < containers.length; i++) {
-            const container = containers[i];
-            if (container.classList.contains("on")) {
-            container.classList.remove("on");
-            }
-        }
-    }
-  })
-
-});
-
 function openModal(overlay) {
-    if (overlay) {
-      overlay.style.display = "block";
-    } else {
-      console.error("Overlay element not found");
-    }
+  if (overlay) {
+    overlay.style.display = "block";
+  } else {
+    console.error("Overlay element not found");
+  }
 }
 
 function closeModal(target) {
@@ -355,39 +293,37 @@ document.addEventListener("click", function (event) {
   if (event.target.classList.contains("full-text-tab")) {
     // const targetId = event.target.getAttribute("data-target");
     const gp = event.target.parentElement.parentElement;
-    const overlay = gp.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
+    const overlay =
+      gp.nextElementSibling.nextElementSibling.nextElementSibling
+        .nextElementSibling;
     openModal(overlay);
   }
 });
 
 document.addEventListener("click", function (event) {
-    if (event.target.classList.contains("menu-handle")) {
-      // const targetId = event.target.getAttribute("data-target");
-      const gp = event.target.parentElement;
+  if (event.target.classList.contains("menu-handle")) {
+    // const targetId = event.target.getAttribute("data-target");
+    const gp = event.target.parentElement;
 
-      if (gp.classList.contains("on")) {
-        gp.classList.remove("on");
-        return;
-      }
-      gp.classList.add("on");
+    if (gp.classList.contains("on")) {
+      gp.classList.remove("on");
+      return;
     }
-  });
+    gp.classList.add("on");
+  }
+});
 
-var loadingDiv = document.getElementById("loading");
-
-function showSpinner() {
+function showSpinner(loadingDiv) {
   loadingDiv.style.visibility = "visible";
 }
 
-function hideSpinner() {
+function hideSpinner(loadingDiv) {
   loadingDiv.style.visibility = "hidden";
 }
-
 
 function viewPhotos() {
   alert("View photos");
 }
-
 
 function scheduleViewing() {
   alert("Schedule viewing");
@@ -403,4 +339,50 @@ function viewOnMap() {
 
 function mortgageCalculator() {
   alert("Mortgage calculator");
+}
+
+function contactByEmail() {
+  alert("Contact by Email");
+}
+
+function appendHomeProperties() {
+  const swiperWrapper = document.querySelector(".swiper-wrapper");
+  listings.attached.slice(0, 20).forEach((listing) => {
+    const slide = document.createElement("div");
+    slide.classList.add("swiper-slide", "s-item", "with-ribbon", "s-ribbon");
+
+    slide.innerHTML = `
+            <a href="mylistings.html/listing.mrp4873-${
+              listing.id
+            }-${listing.address.replace(
+      /\s/g,
+      "-"
+    )}" class="s-link" role="button" aria-label="${listing.address}"></a>
+            <div class="s-image s-image-zoom " data-listing="true" data-id="${listings.attached.indexOf(
+              listing
+            )}">
+                <img src="${listing.images[0]}" alt="${
+      listing.address
+    }" class="abs-fill">
+                <div class="more-info">More Info</div>
+            </div>
+            <div class="s-info">
+                <div class="s-address">${listing.address}</div>
+                <div class="s-price">${listing.price.toLocaleString()}</div>
+                <div class="s-details">
+                    <div class="s-beds">${listing.bedrooms}</div>
+                    <div class="s-baths">${listing.bathrooms}</div>
+                    <div class="s-sqft">${listing.floorArea}</div>
+                </div>
+            </div>
+        `;
+
+    swiperWrapper.appendChild(slide);
+  });
+}
+
+function getlistings() {
+  const attached = listings.attached;
+  const detached = listings.detached;
+  return attached.concat(detached);
 }

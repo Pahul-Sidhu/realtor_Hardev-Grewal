@@ -3,7 +3,7 @@
 <head>
     <!-- <base href="https://eleven.theme.myrealpage.com/map-search.html">
     <link rel="canonical" href="https://eleven.theme.myrealpage.com/map-search.html"> -->
-    <title>Hardev Grewal : Real Estate Services : My Listings</title>
+    <title>Hardev Grewal : Real Estate Services : Search Results</title>
     <meta name="author" content="Hardev Grewal">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <link rel="preload" as="style" href="/__ext.css?c=8&amp;r=css+normalize.css,css+reboot.css,css+block-system.css,css+blocks.css,+css+blocks+menu200c.css,+css+blocks+menu-plugin.css,+css+blocks+slideshow-200c.css,+css+blocks+banner-slides.css,+css+blocks+omnibox-v2.css,+css+blocks+nouislider.14.6.2.min.css,+css+blocks+slider.css,+css+blocks+boxes200c.css,+css+blocks+cards200c.css,+css+blocks+leads200c.css,+css+blocks+swiper7-bundle.min.css,+css+blocks+swiper.css,+css+blocks+featured-listings.css,+css+blocks+flslider.css,+css+blocks+forms.css,+css+blocks+brand-footer.css,">
@@ -99,7 +99,7 @@
        <link rel="preload" as="script" href="./js/jquery-1.12.4.min.js">
        <!-- <link rel="stylesheet" type="text/css" href="styles.css?f=index.html&amp;_cc=1717536782330&amp;theme=themeb011"> -->
        <META property="og:type" content="website">
-       <META property="og:title" content="Hardev Grewal : Real Estate Services : My Listings">
+       <META property="og:title" content="Hardev Grewal : Real Estate Services : Search Results">
        <!-- <META property="og:url" content="https://eleven.theme.myrealpage.com/"> -->
 </head>
 <body class="themeb011 mrp-listing-results bts-filled mylistings blocks-site" id="pagewrap__p">
@@ -420,56 +420,15 @@
 
                                     <div class="inline-container" id="mrp-inline-container">
 
-                                        <div class="mrp-listing-results-sub-categories">
-                                            <span class="menu-handle"></span>
-                                            <ul class="listing-sub-categories">
-                                                <li class="listing-sub-category-all selected" id="all">
-                                                    <a class="listing-sub-category" data-cat="all" href="#">All Properties</a>
-                                                </li>
-                                                <li class="listing-sub-category-REA n-selected" id="REA">
-                                                    <a class="listing-sub-category" data-cat="REA" href="#">Residential Attached</a>
-                                                </li>
-                                                <li class="listing-sub-category-RED n-selected" id="RED">
-                                                    <a class="listing-sub-category" data-cat="RED" href="#">Residential Detached</a>
-                                                </li>
-                                            </ul>
-                                        </div>
 
                                         <div class="clearfix top-divider"></div>
-
-                                        <div class="mrp-results-page-summary">
-
-                                            <select name="resort" class="search-results-sort-by-select" data-url="" aria-label="Sort listing results">
-                                                <option value="">-- Sort by: --</option>
-                                                <option value="0" data-code="price_asc">Price (low-high)</option>
-                                                <option value="1" data-code="price_desc">Price (high-low)</option>
-                                                <option value="2" data-code="area_asc">Fin.Area (small-large)</option>
-                                                <option value="3" data-code="area_desc">Fin.Area (large-small)</option>
-                                            </select>
-
-                                            <div class="mrp-results-numbers">
-                                                <span class='results-total'>
-                                                    <span class='results-item-range' id="res-range">
-                                                </span>
-                                            </div>
-                                        </div>
 
                                         <div id="loading" class="loading">
                                             Loading&#8230;     
                                           </div>
-                                        <ul class="mrp-listing-results" id="results-container" data-context="mylistings" data-root-path="./">
+                                        <ul class="mrp-listing-results" id="displayData" data-context="mylistings" data-root-path="./">
                                             
                                         </ul>
-
-                                        <div >
-
-                                                <div class="btn-container">
-                                                        <button id="prev-page" class="">Prev</button>
-                                                        <button id="next-page" class="">Next</button>
-                                                </div>
-                                        </div>
-
-
                                         <div class="mrp-listing-results-footer">
                                             <div style="font: 10px Helvetica; margin-top: 15px; padding-top: 10px; border-top: 1px solid gray;">
                                             The data relating to real estate on this website comes in part from the MLS&reg; Reciprocity program of either the Greater Vancouver REALTORS® (GVR), the Fraser Valley Real Estate Board (FVREB) or the Chilliwack and District Real Estate Board (CADREB). Real estate listings held by participating real estate firms are marked with the MLS® logo and detailed information about the listing includes the name of the listing agent. This representation is based in whole or part on data generated by either the GVR, the FVREB or the CADREB which assumes no responsibility for its accuracy. The materials contained on this page may not be reproduced without the express written consent of either the GVR, the FVREB or the CADREB.
@@ -709,66 +668,51 @@
     <script src="./js/jquery-1.12.4.min.js"></script>
     <script src="./js/mylistings.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-        appendProperties();
+        document.addEventListener('DOMContentLoaded', async function() {
+            var loadingDiv = document.getElementById("loading");
+            showSpinner(loadingDiv);
+            // Parse query string
+            const params = new URLSearchParams(window.location.search);
+            await fetchListings();
+            const data = {};
+            
+            params.forEach((value, key) => {
+                data[key] = value;
+            });
 
-        document.getElementById("REA").addEventListener("click", () => {
-            document.getElementById("REA").classList.add("selected");
-            document.getElementById("RED").classList.remove("selected");
-            document.getElementById("all").classList.remove("selected");
-            currentPage = 1; // Reset to first page
-            appendProperties("REA");
-            currentSortOption = "";
-            document.querySelector(".search-results-sort-by-select").value = "";
+            // Display data
+            const displayDataDiv = document.getElementById('displayData');
+            const filteredData = search(listings, data.search);
 
-        });
-
-        document.getElementById("RED").addEventListener("click", () => {
-            document.getElementById("RED").classList.add("selected");
-            document.getElementById("REA").classList.remove("selected");
-            document.getElementById("all").classList.remove("selected");
-            currentPage = 1; // Reset to first page
-            appendProperties("RED");
-            currentSortOption = "";
-            document.querySelector(".search-results-sort-by-select").value = "";
-
-        });
-
-        document.getElementById("all").addEventListener("click", () => {
-            document.getElementById("RED").classList.remove("selected");
-            document.getElementById("REA").classList.remove("selected");
-            document.getElementById("all").classList.add("selected");
-            currentPage = 1; // Reset to first page
-            appendProperties();
-            currentSortOption = "";
-            document.querySelector(".search-results-sort-by-select").value = "";
-
-        });
-
-        document.getElementById("content-well").addEventListener("click", (event) => {
-            const containers = document.querySelectorAll(".mrp-listing-links-section");
-            if(containers){
-                for (let i = 0; i < containers.length; i++) {
-                    const container = containers[i];
-                    if (container.classList.contains("on")) {
-                    container.classList.remove("on");
-                    }
-                }
+            if (filteredData.length === 0) {
+                displayDataDiv.innerHTML = '<h2>No results found</h2>';
+                return;
             }
+
+            displayDataDiv.innerHTML = '';
+
+            hideSpinner(loadingDiv);
+
+            filteredData.forEach((property) => {
+                const li = createListingItem(property);
+                displayDataDiv.appendChild(li);
+            });
         });
 
-});
+        function search(listings, search) {
+            let properties = listings.attached.concat(listings.detached);
+            let filtered = [];
 
-        document
-        .querySelector(".search-results-sort-by-select")
-        .addEventListener("change", (event) => {
-            currentSortOption = event.target.value;
-            currentPage = 1; // Reset to the first page whenever sorting changes
-            appendProperties(); // Call with the default "all" to refresh the listings
-            document.getElementById("RED").classList.remove("selected");
-            document.getElementById("REA").classList.remove("selected");
-            document.getElementById("all").classList.add("selected");
-        });
+            // Filter by search with respect to address
+            filtered = properties.filter(property => property.address.toLowerCase().includes(search.toLowerCase()));
+
+            if (filtered.length === 0) {
+                // Filter by search with respect to mls number
+                filtered = properties.filter(property => property.mlsNumber.toLowerCase().includes(search.toLowerCase()));
+            }
+
+            return filtered;
+        }
     </script>
 </body>
 </html>

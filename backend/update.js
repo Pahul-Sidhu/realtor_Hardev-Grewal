@@ -10,81 +10,84 @@ const getProperties = async (type, link) => {
   let properties = [];
   let browser;
   try {
-    browser = await puppeteer.launch({ headless: true });
-    const page = await browser.newPage();
-    await page.goto(link);
+      browser = await puppeteer.launch({ headless: true });
+      const page = await browser.newPage();
+      await page.goto(link);
 
-    // Wait for the frames to load
-    await page.waitForSelector("frame");
+      // Wait for the frames to load
+      await page.waitForSelector("frame");
 
-    // Get all frames
-    let frames = page.frames();
+      // Get all frames
+      let frames = page.frames();
 
-    // Assuming the first actual frame (frames[1]) is where the search button is located
-    let searchFrame = frames[1];
-    if (type == "attached") {
-      await searchFrame.click("#PropertyType_chk1");
-      await delay(5000);
-    }
-
-    // Click the search button
-    await searchFrame.click("#m_btnSearchBottom");
-
-    // Wait for the anchor element to be present and clickable
-    const anchorSelector = "a[href='javascript:;']";
-
-    await searchFrame.waitForSelector(anchorSelector, {
-      visible: true,
-      timeout: 30000,
-    });
-
-    // Scroll the element into view if necessary
-    await searchFrame.evaluate((anchorSelector) => {
-      document.querySelector(anchorSelector).scrollIntoView();
-    }, anchorSelector);
-
-    await delay(1000);
-
-    // Click the anchor element
-    // Use evaluate to ensure the click happens in the correct context
-    await searchFrame.evaluate((anchorSelector) => {
-      document.querySelector(anchorSelector).click();
-    }, anchorSelector);
-
-    //first listing
-    await searchFrame.waitForSelector("#imgAgent");
-
-    while (true) {
-      scrape(searchFrame, type, properties);
-
-      // Check if there's an anchor to show the next view
-      let anchor = await searchFrame.$("a[href*='javascript:showNextView']");
-
-      if (!anchor) {
-        break; // Exit the loop if no more anchors are found
+      // Assuming the first actual frame (frames[1]) is where the search button is located
+      let searchFrame = frames[1];
+      if (type == "attached") {
+          await searchFrame.click("#PropertyType_chk1");
+          await delay(5000);
       }
 
-      await searchFrame.click("a[href*='javascript:showNextView']");
-      await delay(5000); // Wait for 5 seconds before continuing
-    }
+      // Click the search button
+      await searchFrame.click("#m_btnSearchBottom");
+
+      // Wait for the anchor element to be present and clickable
+      const anchorSelector = "a[href='javascript:;']";
+      await searchFrame.waitForSelector(anchorSelector, {
+          visible: true,
+          timeout: 30000,
+      });
+
+      // Scroll the element into view if necessary
+      await searchFrame.evaluate((anchorSelector) => {
+          document.querySelector(anchorSelector).scrollIntoView();
+      }, anchorSelector);
+
+      await delay(1000);
+
+      // Click the anchor element
+      // Use evaluate to ensure the click happens in the correct context
+      await searchFrame.evaluate((anchorSelector) => {
+          document.querySelector(anchorSelector).click();
+      }, anchorSelector);
+
+      // First listing
+      await searchFrame.waitForSelector("#imgAgent");
+
+      while (true) {
+          // Re-select the frame to ensure it is still valid
+          frames = page.frames();
+          searchFrame = frames[1];
+
+          scrape(searchFrame, type, properties);
+
+          // Check if there's an anchor to show the next view
+          let anchor = await searchFrame.$("a[href*='javascript:showNextView']");
+
+          if (!anchor) {
+              break; // Exit the loop if no more anchors are found
+          }
+
+          await searchFrame.click("a[href*='javascript:showNextView']");
+          await delay(5000); // Wait for 5 seconds before continuing
+      }
   } catch (error) {
-    console.error("Error scraping listings:", error);
-    if (browser) {
-      await browser.close();
-    }
-    await logError();
+      console.error("Error scraping listings:", error);
+      await logError(error);
   } finally {
-    if (browser) {
-      await browser.close();
-    }
-
-    console.log(`Scraped ${properties.length} ${type} properties`);
-
-    await logSuccessful();
-    // Store the listings in the database
-    return properties;
+      if (browser) {
+          await browser.close();
+      }
   }
+
+  console.log(`Scraped ${properties.length} ${type} properties`);
+
+  // Placeholder for your logSuccessful function
+  await logSuccessful();
+
+  // Store the listings in the database
+  return properties;
 };
+
 
 // Scrape the listing details
 const scrape = async (searchFrame, type, properties) => {

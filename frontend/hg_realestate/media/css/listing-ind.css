@@ -2498,7 +2498,7 @@
     font-size: 14px;
   }
   #listing-details-view.mrp-style-area.sm620 .mrp-listing-info-container {
-    min-height: 800px;
+    height: fit-content;
   }
   #listing-details-view.mrp-style-area.sm620 .post-image-content {
     width: calc( 100% - 235px );

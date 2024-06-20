@@ -37,7 +37,7 @@ function createListingItem(property) {
       </div>
       <div class="mrp-listing-address-info">
         <h3>
-          <a title="${property.address}" href="./listing.html">
+          <a title="${property.address}" href="./listing.html" class="property-link">
             ${property.address}
             <span class="mrp-listing-minor-address-info">
               ${property.area}
@@ -75,7 +75,7 @@ function createListingItem(property) {
       <div class="mrp-description-and-attribution-wrapper">
         <div class="mrp-listing-description">
           <span class="inner">${property.description}</span>
-          <a class="more-details" title="${
+          <a class="more-details property-link" title="${
             property.address
           }" href="./listing.html">More details</a>
           <span class="full-text-tab" data-target="modal-open"></span>
@@ -91,24 +91,7 @@ function createListingItem(property) {
         <a title="${property.address}" href="./listing.html">LISTING DETAILS</a>
       </div>
       <div class="mrp-listing-links-section">
-        <a class="menu-handle"></a>
-        <ul>
-          <li class="mrp-res-item-photos-outer">
-            <a href="javascript:;" class="mrp-listing-link mrp-listing-link-photos" data-event="mrp.listing.photos">View photos</a>
-          </li>
-          <li class="mrp-res-item-contact-outer">
-            <a href="javascript:;" class="mrp-listing-link" data-event="mrp.listing.contact">Schedule viewing / Email</a>
-          </li>
-          <li class="mrp-res-item-send-outer">
-            <a href="javascript:;" class="mrp-listing-link" data-event="mrp.listing.send">Send listing</a>
-          </li>
-          <li class="mrp-res-item-maps-outer">
-            <a href="javascript:;" class="mrp-listing-link" data-event="mrp.listing.maps">View on map</a>
-          </li>
-          <li class="mrp-res-item-mortgage-outer">
-            <a href="javascript:;" class="mrp-listing-link" data-event="mrp.listing.mortgage">Mortgage calculator</a>
-          </li>
-        </ul>
+        <a class="menu-handle property-link" href="#" id="property-detail"></a>
       </div>
       <div class="mrp-owner-contact-container">
         <div class="listing-contact-info">
@@ -131,6 +114,15 @@ function createListingItem(property) {
          <span class="close" id="close-blue"  data-target="modal"></span>
       </div>
     `;
+
+    li.querySelectorAll('.property-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const serializedProperty = encodeURIComponent(JSON.stringify(property));
+        const url = `./listing.html?property=${serializedProperty}`;
+        window.location.href = url;
+      });
+    });
 
   return li;
 }
@@ -297,19 +289,6 @@ document.addEventListener("click", function (event) {
       gp.nextElementSibling.nextElementSibling.nextElementSibling
         .nextElementSibling;
     openModal(overlay);
-  }
-});
-
-document.addEventListener("click", function (event) {
-  if (event.target.classList.contains("menu-handle")) {
-    // const targetId = event.target.getAttribute("data-target");
-    const gp = event.target.parentElement;
-
-    if (gp.classList.contains("on")) {
-      gp.classList.remove("on");
-      return;
-    }
-    gp.classList.add("on");
   }
 });
 

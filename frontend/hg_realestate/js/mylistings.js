@@ -300,30 +300,6 @@ function hideSpinner(loadingDiv) {
   loadingDiv.style.visibility = "hidden";
 }
 
-function viewPhotos() {
-  alert("View photos");
-}
-
-function scheduleViewing() {
-  alert("Schedule viewing");
-}
-
-function sendListing() {
-  alert("Send listing");
-}
-
-function viewOnMap() {
-  alert("View on map");
-}
-
-function mortgageCalculator() {
-  alert("Mortgage calculator");
-}
-
-function contactByEmail() {
-  alert("Contact by Email");
-}
-
 function appendHomeProperties() {
   const swiperWrapper = document.querySelector(".swiper-wrapper");
   listings.attached.slice(0, 20).forEach((listing) => {

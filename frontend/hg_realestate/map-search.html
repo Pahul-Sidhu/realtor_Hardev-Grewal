@@ -18,6 +18,7 @@
     <!-- start: block theme settings -->
 
     <meta name='x-theme-settings' content='start'>
+ 
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;300;400;700;900&family=Oswald:wght@300;400;700&family=Oswald:wght@300;400;700&display=swap">
 
@@ -78,12 +79,253 @@
 
        <!-- end block theme settings -->
        <link rel="stylesheet" type="text/css" href="./css/blocks/search-box-200c.css">
+       <link
+      rel="stylesheet"
+      type="text/css"
+      href="./css/blocks/search-box-200c.css"
+    />
        <link rel="stylesheet" type="text/css" href="./css/blocks/listing-carousel-200c.css">
        <link rel="preload" as="script" href="./js/jquery-1.12.4.min.js">
        <link rel="stylesheet" type="text/css" href="styles.css?f=index.html&amp;_cc=1717536782330&amp;theme=themeb011">
        <META property="og:type" content="website">
        <META property="og:title" content="Hardev Grewal : Real Estate Services : Map Search">
        <!-- <META property="og:url" content="https://eleven.theme.myrealpage.com/"> -->
+        <style>
+            .container {
+                display: flex;
+                margin-top: 10px;
+                padding: 5px;
+            }
+            #map {
+                width: 100%;
+                height: 100vh;
+            }
+            #listings {
+                width: 30%;
+                height: 100vh;
+                overflow-y: scroll;
+                padding: 10px;
+                box-sizing: border-box;
+            }
+            .listing-item {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                cursor: pointer;
+            }
+            .listing-item:hover {
+                background-color: #f0f0f0;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            #listings {
+                padding: 20px;
+                background-color: #f8f8f8;
+            }
+
+            .mrp-listing-result {
+                background: #fff;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                margin-bottom: 20px;
+                overflow: hidden;
+                transition: transform 0.2s ease-in-out;
+                position: relative;
+            }
+
+            .mrp-listing-result:hover {
+                transform: translateY(-10px);
+            }
+
+            .mrp-listing-main-image-container {
+                position: relative;
+            }
+
+            .mrp-listing-main-image-container img {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .listing-item-entry-title {
+                font-size: 18px;
+                font-weight: bold;
+                margin: 10px 0;
+                padding: 0 15px;
+                color: #333;
+            }
+
+            .mrp-listing-price-container {
+                font-size: 24px;
+                font-weight: bold;
+                color: #d9534f;
+                bottom: 10px;
+                right: 10px;
+                background-color: rgba(255, 255, 255, 0.9);
+                padding: 5px 10px;
+                border-radius: 4px;
+            }
+
+            .mrp-listing-address-info h3 {
+                margin: 0;
+                padding: 0 15px;
+                font-size: 16px;
+                color: #555;
+            }
+
+            .mrp-listing-summary-outer {
+                padding: 10px 15px;
+                border-top: 1px solid #ddd;
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .mrp-listing-summary-section dt,
+            .mrp-listing-summary-section dd {
+                margin: 0;
+                font-size: 14px;
+            }
+
+            .mrp-listing-summary-section {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                padding: 5px 0;
+            }
+
+            .mrp-listing-summary-section .summary-status,
+            .mrp-listing-summary-section .summary-mls-number,
+            .mrp-listing-summary-section .summary-bedrooms,
+            .mrp-listing-summary-section .summary-bathrooms,
+            .mrp-listing-summary-section .summary-floor-area {
+                display: flex;
+                align-items: center;
+                width: 33.33%;
+                padding: 5px 0;
+            }
+
+            .mrp-listing-description {
+                padding: 10px 15px;
+                border-top: 1px solid #ddd;
+                color: #555;
+                font-size: 14px;
+            }
+
+            .mrp-listing-description .inner {
+                margin-bottom: 10px;
+            }
+
+            .mrp-listing-description .more-details {
+                color: #1a73e8;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+            .mrp-listing-description .more-details:hover {
+                text-decoration: underline;
+            }
+
+            .mrp-listing-details-link {
+                padding: 10px 15px;
+                border-top: 1px solid #ddd;
+                background-color: #f0f0f0;
+                text-align: center;
+            }
+
+            .mrp-listing-details-link a {
+                color: #1a73e8;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+            .mrp-listing-details-link a:hover {
+                text-decoration: underline;
+            }
+
+            .mrp-owner-contact-container {
+                padding: 10px 15px;
+                border-top: 1px solid #ddd;
+                background-color: #f9f9f9;
+            }
+
+            .mrp-owner-contact-container .listing-contact-info {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .mrp-owner-contact-container .listing-contact-info ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .mrp-owner-contact-container .listing-contact-info li {
+                margin-bottom: 5px;
+            }
+
+            .mrp-owner-contact-container .listing-contact-info a {
+                color: #1a73e8;
+                text-decoration: none;
+            }
+
+            .mrp-owner-contact-container .listing-contact-info a:hover {
+                text-decoration: underline;
+            }
+
+            .mrp-listing-result-overlay {
+                background-color: rgba(0, 0, 0, 0.7);
+                color: #fff;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                transition: opacity 0.2s ease-in-out;
+            }
+
+            .mrp-listing-result:hover .mrp-listing-result-overlay {
+                opacity: 1;
+            }
+
+            .mrp-listing-result-overlay .inner {
+                text-align: center;
+            }
+
+            .mrp-listing-result-overlay .close {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                cursor: pointer;
+            }
+
+            @media (max-width: 800px) {
+                .container {
+                flex-direction: column;
+                }
+                #map {
+                    width: 100%;
+                    height: 70vh;
+                }
+                #listings {
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    height: 70vh;
+                    width: 100%;
+                    overflow-x: scroll;
+                    padding: 10px;
+                    box-sizing: border-box;
+                }
+            }
+
+
+        </style>
 </head>
 <body class="themeb011 bts-filled map-search blocks-site" id="pagewrap__p">
     <div id="template-layout" class="html-layout" rel="mrp-layout">
@@ -387,266 +629,35 @@
                 </script>
             </div>
         </div>
-        <div id="content-well">
-            <div id="page-layout" class="html-layout simple-layout" rel="mrp-layout">
-                <div id="bid_9338071" rel="mrp-layout" data-version="1.0" class="block-layout layout idx-block map-idx-001">
-                    <style>
-                    html.idx-hosted-mode:not(.editing) body > .html-layout {
-                        display: grid;
-                        grid-template-columns: 1fr;
-                        grid-template-rows: max-content 1fr;
-                        width: 100vw;
-                        height: 100vh;
-                        max-width: 100vw;
-                        max-height: 100vh;
-                        left: 0;
-                        top: 0;
-                        position: fixed;
-                    }
-
-                    html.idx-hosted-mode:not(.editing) body > .html-layout #mrp-header {
-                        min-height: 0;
-                    }
-
-                    html.idx-hosted-mode:not(.editing) body > .html-layout > div:nth-child(n + 3) {
-                        display: none;
-                    }
-
-                    html.idx-hosted-mode:not(.editing) body > .html-layout .html-layout {
-                        height: 100%;
-                    }
-
-                    html.idx-hosted-mode:not(.editing) body > .html-layout .html-layout > .idx-block {
-                        height: 100%;
-                    }
-
-                    html.idx-hosted-mode:not(.editing) body #content-well > .html-layout > * :not(.idx-block) {
-                        display: none;
-                    }
-
-                    html.idx-hosted-mode:not(.editing) body > .provider-attribution, html.idx-hosted-mode:not(.editing) body > .mrp-crea-attribution {
-                        display: none;
-                    }
-
-                    html.idx-hosted-mode.editing .mrp-idx-panel-hosted {
-                        display: none;
-                    }
-
-                    html.idx-hosted-mode:not(.editing) #mrp-header {
-                        z-index: 300;
-                    }
-
-                    html.idx-hosted-mode.editing .idx-weblet {
-                        display: block;
-                    }
-
-                    html.idx-hosted-mode:not(.editing) .mrp-idx-panel-hosted {
-                        display: block;
-                        width: 100% !important;
-                        height: 100% !important;
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                    }
-
-                    html.idx-hosted-mode:not(.editing) .mrp-idx-panel-hosted .mrp-idx-form-container {
-                        height: 100% !important;
-                        min-height: 100% !important;
-                        top: 0;
-                    }
-
-                    html.idx-hosted-mode:not(.editing) .idx-weblet {
-                        display: none;
-                    }
-
-                    html:not(.idx-hosted-mode) .mrp-idx-panel-hosted.mrp-idx-panel-hosted {
-                        /* prevent collapse of height */
-                        min-height: 100vh;
-                        position: relative;
-                    }
-
-                    html.idx-hosted-mode .mrp-idx-panel-hosted.mrp-idx-panel-hosted {
-                        box-shadow: none;
-                        min-height: 0;
-                    }
-
-                    .mrp-idx-panel:not(.mrp-idx-panel-hosted) {
-                        z-index: 400;
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100vw;
-                        max-width: none;
-                        background-color: rgba(0, 0, 0, 0.7);
-                    }
-
-                    .mrp-idx-panel:not(.mrp-idx-panel-hosted) .mrp-idx-panel-contents {
-                        max-width: 1200px;
-                        margin: 0 auto;
-                    }
-
-                    .mrp-idx-panel:not(.mrp-idx-panel-hosted) .mrp-idx-panel-controls {
-                        max-width: 1200px;
-                        left: 50vw;
-                        transform: translateX(-50%);
-                    }
-
-                    .mrp-idx-panel.with-hosted {
-                        cursor: pointer;
-                    }
-
-                    .mrp-idx-panel.with-hosted > * {
-                        cursor: default;
-                    }/* search button */
-                    .idx-block .idx-search-button-wrapper {
-                        display: none;
-                    }/* placeholder */
-                    html.idx-hosted-mode:not(.editing) .idx-block .placeholder {
-                        display: none;
-                    }
-
-                    html.idx-hosted-mode.editing .idx-block .placeholder {
-                        display: flex;
-                        flex-direction: column;
-                    }
-
-                    html.idx-hosted-mode.editing .idx-block .placeholder svg {
-                        width: 6rem;
-                        height: 6rem;
-                        margin-bottom: 2rem;
-                        opacity: 0.4;
-                    }
-
-                    .idx-block .placeholder {
-                        font-size: 4vw;
-                        display: none;
-                        align-items: center;
-                        justify-content: center;
-                        position: relative;
-                        min-height: 90vh;
-                        padding: 25vh;
-                        text-align: center;
-                        line-height: 1.2;
-                        color: rgba(0, 0, 0, 0.5);
-                        /* text-transform: uppercase; */
-                    }
-
-                    .idx-block .placeholder::before {
-                        content: "";
-                        position: absolute;
-                        top: 5vh;
-                        bottom: 5vh;
-                        left: 5vh;
-                        right: 5vh;
-                        background-color: rgba(0, 0, 0, 0.1);
-                    }
-
-                    .idx-block .progress-container {
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%) scale(1.6);
-                    }
-
-                    html.editing.mrp-idx-on, html.editing.mrp-idx-on > body {
-                        height: auto !important;
-                    }
-                    </style>
-                    <div class="placeholder">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-progress-wrench" width="24" height="24" viewBox="0 0 24 24">
-                            <path d="M13,2.03V2.05L13,4.05C17.39,4.59 20.5,8.58 19.96,12.97C19.5,16.61 16.64,19.5 13,19.93V21.93C18.5,21.38 22.5,16.5 21.95,11C21.5,6.25 17.73,2.5 13,2.03M11,2.06C9.05,2.25 7.19,3 5.67,4.26L7.1,5.74C8.22,4.84 9.57,4.26 11,4.06V2.06M4.26,5.67C3,7.19 2.25,9.04 2.05,11H4.05C4.24,9.58 4.8,8.23 5.69,7.1L4.26,5.67M2.06,13C2.26,14.96 3.03,16.81 4.27,18.33L5.69,16.9C4.81,15.77 4.24,14.42 4.06,13H2.06M7.1,18.37L5.67,19.74C7.18,21 9.04,21.79 11,22V20C9.58,19.82 8.23,19.25 7.1,18.37M16.82,15.19L12.71,11.08C13.12,10.04 12.89,8.82 12.03,7.97C11.13,7.06 9.78,6.88 8.69,7.38L10.63,9.32L9.28,10.68L7.29,8.73C6.75,9.82 7,11.17 7.88,12.08C8.74,12.94 9.96,13.16 11,12.76L15.11,16.86C15.29,17.05 15.56,17.05 15.74,16.86L16.78,15.83C17,15.65 17,15.33 16.82,15.19Z"></path>
-                        </svg>
-                        <div>Map search hidden while editing</div>
-                    </div>
-                    <div class="mrp-idx-panel-hosted">
-                        <div class="progress-container">
-                            <div class="dot-pulse"></div>
-                        </div>
-                    </div>
-                    <div class="idx-weblet" data-slot="idx">
-                        <div id="listings-4897425328523191234-p" class="mrp-weblet mrp-weblet-listings" data-name="listings">
-                            <div class="weblet-inner">
-                                <div class="idx-search-button-wrapper">
-                                    <a class="idx-start-button" id="idx-57FQCLJCZN" href="javascript:;">Start searching listings</a>
-                                </div>
-                                <script src="./rest/59916/l/recip/tmpl2.js?4.19.1.191"></script>
-                                <script>
-                                window.mrp_v2_map_ready(function() {
-
-                                    var showcontrols = "";
-
-                                    if (window.location.href.indexOf("showcontrols") != -1) {
-                                        showcontrols = ",showcontrols~1";
-                                    }
-
-                                    window._mrp_idx_init_attrs = "";
-
-                                    _gmrp.$("#idx-57FQCLJCZN").on("click", function() {
-                                        page("./-/noframe~true" + showcontrols + "/recip/59916/idx.search?");
-                                    });
-                                    _gmrp.$(document).on("click", ".idx-start", function(e) {
-                                        e.stopImmediatePropagation();
-                                        page("./-/noframe~true" + showcontrols + "/recip/59916/idx.search?");
-                                        return false;
-                                    });
-                                    _gmrp.$(window).on("hashchange", function(e) {
-                                        e.stopImmediatePropagation();
-                                        if (window.location.hash == "#idxlaunch") {
-                                            page.redirect("./-/noframe~true" + showcontrols + "/recip/59916/idx.search?");
-                                        }
-                                        return false;
-                                    });
-                                    if (window.location.hash == "#idxlaunch") {
-                                        page("./-/noframe~true" + showcontrols + "/recip/59916/idx.search?");
-                                    }
-                                    _gmrp.$(function() {
-                                        if (window.location.href && window.location.href.indexOf("autolaunch") != -1) {
-                                            _gmrp.$("#idx-57FQCLJCZN").trigger("click");
-                                        }
-                                        else if (window.location.href && window.location.href.indexOf("autosearch") != -1) {
-                                            var qs = (window.location.search ? window.location.search.substring(1) : "");
-                                            qs = qs.replace("autosearch&", "");
-                                            qs = qs.replace("autosearch", "");
-                                            if (qs.indexOf("i_location=") == -1 && qs.indexOf("i_mlsnum=") == -1 && window._mrp_idx_init_attrs) {
-                                                var initAttrs = new URLSearchParams(window._mrp_idx_init_attrs);
-                                                var pos = initAttrs.get("idx_v2_map_pos");
-                                                var zoom = initAttrs.get("idx_v2_map_zoom");
-                                                var radius = initAttrs.get("idx_v2_map_radius");
-                                                if (pos) {
-                                                    qs += (qs ? "&" : "") + "idx_v2_map_pos=" + pos;
-                                                }
-                                                if (zoom) {
-                                                    qs += (qs ? "&" : "") + "idx_v2_map_zoom=" + zoom;
-                                                }
-                                                if (radius) {
-                                                    qs += (qs ? "&" : "") + "idx_v2_map_radius=" + radius;
-                                                }
-                                            }
-                                            page.redirect("./-/noframe~true" + showcontrols + "/recip/59916/idx.search?" + qs);
-                                        }
-                                    });
-                                });
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-                    <script>
-                    window.block_code_modules = [...(window.block_code_modules || []), {
-                        id: 'bid_9338071'
-                    }];
-                    window.block_code_modules[window.block_code_modules.length - 1].init = (function(ID, module) {
-
-
-
-
-
-
-
-                    });
-                    window.block_code_modules[window.block_code_modules.length - 1].init('bid_9338071', window.block_code_modules[window.block_code_modules.length - 1]);
-                    </script>
-                </div>
+        <div class="omnibox-v2-container">
+            <div class="input-container">
+              <input
+                autocomplete="off"
+                type="text"
+                id="search" 
+                name="search"
+                placeholder="Enter location or MLS® number"
+                aria-label="Enter location or MLS® number"
+              />
             </div>
+            <div class="field-decorator button-container">
+              <button
+                style="padding: 0.5rem; cursor: pointer;"
+                class="button small"
+                id="search-button"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+                    <div class="container">
+                        <div id="map"></div>
+                        <div id="listings">
+                            <ul id="results-container" data-context="mylistings"></ul>
+                        </div>
+                   
+                
+                    
         </div>
         <div id="mrp-footer">
             <div id="bid_4401267" rel="mrp-layout" data-version="1.0" class="block-layout layout boxes-200c footer-200c  boxes-200c-txt3 inverted">
@@ -821,18 +832,7 @@
 
     </div>
     <script data-rel="mrpt" data-a="59916" src="./js/_mrpt.js?1" async></script>
-    <script>
-    (window["_mrpt"] = window["_mrpt"] || []).push({
-        type: 'web',
-        addType: 'pageview',
-        url: window.location.href,
-    })// setTimeout(() => {
-    // 	(window["_mrpt"] = window["_mrpt"] || []).push({
-    // 		type: 'post.page',
-    // 		url: window.location.href,
-    // 	})
-    // }, 3000 )
-    </script>
+    
     <div class="mrp-crea-attribution region-GV">
         <img src="./media/images/icon-gv-recip-standard.gif" border="0" style="float: right; margin-left: 10px" alt="Reciprocity Logo">
 
@@ -840,5 +840,275 @@
     </div>
     <script type="text/javascript" src="/__ext.js?c=8&amp;r=js+blocks.js,js+responsive-containers-mod.js,+js+blocks+menu200c.js,+js+blocks+maps.js,+js+blocks+brand-footer.js,"></script>
     <script src="./js/jquery-1.12.4.min.js"></script>
+    <!-- Google Maps JavaScript API -->
+    <script src="./js/mylistings.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async() => {
+            
+            await fetchListings();
+            myListings = listings.attached.concat(listings.detached);
+            displayListings();
+        
+        var myListings;
+        var customMarker;
+        let map;
+        let markers = [];
+        let infoWindows = [];
+        let geocoder;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 49.2827, lng: -123.1207 },
+                zoom: 12
+            });
+
+            geocoder = new google.maps.Geocoder();
+
+            myListings.forEach(listing => {
+                geocodeAddress(listing);
+            });
+
+            addMarkersAndInfoWindows();
+
+
+            
+        }
+
+        function addMarkersAndInfoWindows() {
+            for (let i = 0; i < markers.length; i++) {
+                const marker = markers[i];
+                const infoWindow = infoWindows[i];
+
+                // Set the map for the marker
+                marker.setMap(map);
+
+                // Attach the info window to the marker
+                attachInfoWindow(marker, infoWindow);
+            }
+        }
+
+        function attachInfoWindow(marker, infoWindow) {
+            marker.addListener('click', () => {
+                // Close all info windows before opening the current one
+                infoWindows.forEach(iw => iw.close());
+                infoWindow.open(map, marker);
+            });
+
+            
+        }
+
+        document.getElementById('search-button').addEventListener('click', handleSearch);
+
+
+        function geocodeAddress(listing) {
+            customMarker = {
+                url: './media/images/pin.png', // URL to the blue marker icon
+                scaledSize: new google.maps.Size(25, 25), // Size of the marker
+                origin: new google.maps.Point(0, 0), // Origin of the marker
+                anchor: new google.maps.Point(25, 50) // Anchor point of the marker
+            };
+            geocoder.geocode({ 'address': listing.address }, (results, status) => {
+                if (status === 'OK') {
+                    const position = results[0].geometry.location;
+                    const marker = new google.maps.Marker({
+                        position: position,
+                        map: map,
+                        title: listing.address,
+                        icon: customMarker
+                    });
+
+                    const infoWindow = new google.maps.InfoWindow({
+                        content: ` 
+                            <div>
+                                <img src="https:${listing.images[0]}" alt="image" style="width: 100%; height: auto;">
+                                <h3>Address - ${listing.address}</h3>
+                                <p>$${listing.price.toLocaleString()}</p>
+                                
+                            </div>`
+                    });
+
+                    marker.addListener('mouseover', () => {
+                        infoWindows.forEach(iw => iw.close());
+                        infoWindow.open(map, marker);
+                    });
+
+                    marker.addListener('mouseout', () => {
+                        infoWindow.close();
+                    });
+
+                    marker.addListener('click', () => {
+                        scrollToItem(listing.mlsNumber);
+                        
+                    });
+
+                    markers.push(marker);
+                    infoWindows.push(infoWindow);
+                } else {
+                    console.error('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+
+        function scrollToItem(itemId) {
+            // Scroll to the item with the specified ID
+            var item = document.getElementById(itemId);
+            item.scrollIntoView({ behavior: 'smooth', block: 'center'});
+            item.style.backgroundColor = '#cae8ff'; // Highlight color
+            setTimeout(() => {
+                item.style.backgroundColor = ''; // Reset color after a short period
+            }, 2000);
+        }
+
+        function displayListings() {
+            const listingsContainer = document.getElementById('results-container');
+
+            myListings.forEach(listing => {
+                const li = createItem(listing);
+
+                listingsContainer.appendChild(li);
+            });
+        }
+
+        function createItem(property) {
+            const li = document.createElement("li");
+            li.className = "mrp-listing-result";
+            li.id = property.mlsNumber;
+
+            const mainImage = property.images[0];
+
+            li.innerHTML = `
+                <h3 class="listing-item-entry-title">${property.address} in ${property.area}</h3>
+                <div class="listing-image-and-toolbar-wrapper">
+                    <div class="mrp-listing-main-image-container" data-banner="">
+                        <div class="inner">
+                            <img src="https:${mainImage}" alt="Main Photo: ${property.address}" class="mrp-listing-main-image mrp-listing-main-photo">
+                        </div>
+                    </div>
+                    <div class="mrp-listing-price-container">$${property.price.toLocaleString()}</div>
+                </div>
+                <div class="mrp-listing-summary-outer">
+                    <div class="mrp-listing-summary-section summary-status">
+                        <dt class="status-line">Status:</dt>
+                        <dd class="status-line"><span>Active</span></dd>
+                    </div>
+                    <div class="mrp-listing-summary-section summary-mls-number">
+                        <dt class="mls-num-line">MLS&reg; Num:</dt>
+                        <dd class="mls-num-line"><span>${property.mlsNumber}</span></dd>
+                    </div>
+                    <div class="mrp-listing-summary-section summary-bedrooms">
+                        <dt class="bedrooms-line">Bed:</dt>
+                        <dd class="bedrooms-line"><span>${property.bedrooms}</span></dd>
+                    </div>
+                    <div class="mrp-listing-summary-section summary-bathrooms">
+                        <dt class="bathrooms-line">Bath:</dt>
+                        <dd class="bathrooms-line"><span>${property.bathrooms}</span></dd>
+                    </div>
+                    <div class="mrp-listing-summary-section summary-floor-area">
+                        <dt class="floor-area-line">Floor Area:</dt>
+                        <dd class="floor-area-line"><span>${property.floorArea}</span></dd>
+                    </div>
+                </div>
+                <div class="mrp-listing-description">
+                    <div class="inner">${property.description}</div>
+                </div>
+                <div class="mrp-listing-details-link">
+                    <a href="./listing.html" class="property-link" title="${property.address}">LISTING DETAILS</a>
+                </div>
+                <div class="mrp-owner-contact-container">
+                    <div class="listing-contact-info">
+                        <ul>
+                            <li class="contact-name">HARDEV GREWAL</li>
+                            <li class="contact-office">Real Estate Professionals Inc.</li>
+                            <li class="contact-phone"><a href="tel:1 (604) 5003920">1 (604) 5003920</a></li>
+                            <li class="contact-email"><a class="mrp-listing-link" href="#">Contact by Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mrp-listing-result-overlay blue listing-description on" style="display:none;">
+                    <div class="inner">${property.description}</div>
+                    <span class="close" id="close-blue" data-target="modal"></span>
+                </div>
+            `;
+
+            li.querySelectorAll('.property-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const serializedProperty = encodeURIComponent(JSON.stringify(property));
+                    const url = `./listing.html?property=${serializedProperty}`;
+                    window.location.href = url;
+                });
+            });
+
+            li.addEventListener('click', () => {
+               infoWindows.forEach(iw => iw.close());
+                highlightMarker(property.address, listings.attached.concat(listings.detached));
+            });
+
+            li.addEventListener('mouseover', () => {
+                li.style.backgroundColor = '#cae8ff';
+            });
+
+            li.addEventListener('mouseout', () => {
+                li.style.backgroundColor = '';
+                li.style.transition = 'background-color 0.5s';
+                li.style.transitionTimingFunction = 'ease';
+                li.style.transitionDelay = '0s';
+                li.style.transitionDuration = '0.5s';
+                li.style.transitionProperty = 'background-color';
+                li.style.cursor = 'pointer';
+            });
+
+            return li;
+        }
+
+        function highlightMarker(address, properties) {
+            
+            const marker = markers.find(m => m.title === address);
+            
+            if (marker) {
+                map.panTo(marker.getPosition());
+                google.maps.event.trigger(marker, 'mouseover');
+            }
+        }
+
+        window.initMap = initMap;
+
+        function handleSearch() {
+            const searchInput = document.getElementById('search');
+            const searchValue = searchInput.value.toLowerCase().trim();
+
+            if (!searchValue || searchValue.length <= 3) {
+                alert('Please enter a valid search value with at least 4 characters.');
+                return;
+            }
+
+            const filteredListing = myListings.find(listing => {
+                return listing.address.toLowerCase().includes(searchValue) || listing.mlsNumber.toLowerCase().includes(searchValue);
+            });
+
+            infoWindows.forEach(iw => iw.close());
+
+            if (filteredListing) {
+                highlightMarker(filteredListing.address, myListings);
+                scrollToItem(filteredListing.mlsNumber);
+            } else {
+                alert('No listing found');
+            }
+
+            searchInput.value = '';
+
+        }
+
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyByCh4jbfOiUyylkUmaVUTVpivWNmZV-yM&libraries=places&callback=initMap`;
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+    });
+
+
+
+    </script>
+
 </body>
 </html>

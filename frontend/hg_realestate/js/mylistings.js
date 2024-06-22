@@ -124,6 +124,13 @@ function createListingItem(property) {
       });
     });
 
+    li.getElementsByClassName("contact-info-tab")[0].addEventListener("click", function () {
+      // initialize the phone call action
+      window.open('tel:6045003920');
+      
+    }
+    );
+
   return li;
 }
 

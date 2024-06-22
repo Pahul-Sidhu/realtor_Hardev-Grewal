@@ -6,7 +6,7 @@ const { readListings } = require("./db");
 const cors = require('cors');
 var cron = require('node-cron');
 
-cron.schedule('0 0 */1 * * *', function(){
+cron.schedule('0 0 */24 * * *', function(){
   scrapeLinks();
 });
 

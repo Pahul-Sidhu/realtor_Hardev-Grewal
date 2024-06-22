@@ -68,7 +68,7 @@ const getProperties = async (type, link) => {
           }
 
           await searchFrame.click("a[href*='javascript:showNextView']");
-          await delay(5000); // Wait for 5 seconds before continuing
+          await delay(10000); // Wait for 5 seconds before continuing
       }
   } catch (error) {
       console.error("Error scraping listings:", error);
@@ -91,6 +91,9 @@ const getProperties = async (type, link) => {
 
 // Scrape the listing details
 const scrape = async (searchFrame, type, properties) => {
+  if (!searchFrame) {
+    return;
+  }
   const page = await searchFrame.content();
   const $ = cheerio.load(page);
 

@@ -568,7 +568,7 @@
                                                                                                 <a href="#" id="sendEmailLink" class="mrp-listing-link send-listing-link" data-event="mrp.listing.send">Send listing</a>
                                                                                             </li>
                                                                                             <li class="mortgage-calc-link-outer">
-                                                                                                <a href="javascript:;" class="mrp-listing-link mortgage-calc-link" data-event="mrp.listing.mortgage">Mortgage calculator</a>
+                                                                                                <a href="#" id="calculateMortgage" class="mrp-listing-link" data-event="mrp.listing.mortgage">Mortgage calculator</a>
                                                                                             </li>
                                                                                             <li class="">
                                                                                                 <a href="javascript:window.print();" class="print-listing-link">Print listing</a>
@@ -846,25 +846,33 @@
                             <script type="text/javascript" src="/__ext.js?c=8&amp;r=js+blocks.js,js+responsive-containers-mod.js,+js+blocks+menu200c.js,+js+blocks+maps.js,+js+blocks+brand-footer.js,"></script>
                             <script src="./js/jquery-1.12.4.min.js"></script>
                             <script>
+                                var property;
                                 function getQueryParameter(name) {
                                     const urlParams = new URLSearchParams(window.location.search);
                                     return urlParams.get(name);
                                 }
                                 document.addEventListener("DOMContentLoaded", function () {
-                                const propertyParam = getQueryParameter('property');
-                                if (propertyParam) {
-                                    const property = JSON.parse(decodeURIComponent(propertyParam));
-                                    console.log(property); // Use the property object as needed
-                                    addTop(property);
-                                    addMid(property);
-                                    addPhotos(property);
-                                    sendEmail(property);
-                                    sendListingbyEmail(property);
-                                    document.body.appendChild(propertyContainer);
-                                } else {
-                                    console.error('No property data found in URL.');
-                                }
+                                    const propertyParam = getQueryParameter('property');
+                                    if (propertyParam) {
+                                        property = JSON.parse(decodeURIComponent(propertyParam));
+                                        console.log(property); // Use the property object as needed
+                                        addTop(property);
+                                        addMid(property);
+                                        addPhotos(property);
+                                        sendEmail(property);
+                                        sendListingbyEmail(property);
+                                        document.body.appendChild(propertyContainer);
+                                        
+                                    } else {
+                                        console.error('No property data found in URL.');
+                                    }
                             });
+
+                            document.getElementById("calculateMortgage").addEventListener('click', function(e) {
+                                        const price = JSON.parse(decodeURIComponent(getQueryParameter('property'))).price;
+                                        e.preventDefault();
+                                        window.location.href = "./mortgage-calculator.html?property=" + encodeURIComponent(JSON.stringify({price: property.price}));
+                                    });
 
 
                             function addTop(property){

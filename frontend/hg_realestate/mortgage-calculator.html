@@ -443,7 +443,7 @@
                         <div class="buttons">
                             <div class="button-list no-text-transform" >
 
-                                <a href="tel:604-123-4567" role="button" class="fluid-button button plain   " >
+                                <a href="tel:604-500-3920" role="button" class="fluid-button button plain   " >
                                     <svg class="fluid-button-image" xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
                                         <path d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24c1.12.37 2.33.57 3.57.57c.55 0 1 .45 1 1V20c0 .55-.45 1-1 1c-9.39 0-17-7.61-17-17c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1c0 1.25.2 2.45.57 3.57c.11.35.03.74-.25 1.02l-2.2 2.2z'></path>
                                     </svg>
@@ -547,237 +547,18 @@
                 outline: none;
               }
             </style>
-            <div
-              class="container form-container fx slide-in-up fade-in"
-              data-slot="weblet"
-            >
-              <div
-                id="mortgage-calc-7983368443337750096-p"
-                class="mrp-weblet mrp-weblet-mortgage-calc"
-                data-name="mortgage-calc"
-              >
-                <div class="weblet-inner">
-                  <h3>Mortgage Calculator</h3>
-                  <div class="mrp-mortgage-calc-outer mrp-dynamic-form">
-                    <div class="form-inner clearfix mortgage-inputs">
-                      <div class="in-group-1">
-                        <div class="form-group">
-                          <label>Purchase Amount:</label>
-                          <div class="control-wrapper">
-                            <input
-                              class="form-control dynamic-form-text"
-                              name="totalAmount"
-                              type="text"
-                              onchange="orFlJnWEtZ = mrpMtgCalc.processForm( 'mortgage-calc-7983368443337750096-p' )"
-                              value="300,000"
-                            />
-                          </div>
-                        </div>
-
-                        <div class="form-group">
-                          <label>Interest Rate:</label>
-                          <div class="control-wrapper">
-                            <input
-                              class="form-control dynamic-form-text"
-                              name="interest"
-                              type="text"
-                              onchange="orFlJnWEtZ = mrpMtgCalc.processForm( 'mortgage-calc-7983368443337750096-p' )"
-                              value="3.5"
-                            />
-                          </div>
-                        </div>
-
-                        <div class="form-group">
-                          <label>Mortgage Term (Years):</label>
-                          <div class="control-wrapper">
-                            <input
-                              class="form-control dynamic-form-text"
-                              name="term"
-                              type="text"
-                              onchange="orFlJnWEtZ = mrpMtgCalc.processForm( 'mortgage-calc-7983368443337750096-p' )"
-                              value="25"
-                            />
-                          </div>
-                        </div>
-
-                        <div class="form-group">
-                          <label>Payment Interval:</label>
-                          <div class="control-wrapper">
-                            <select
-                              name="interval"
-                              onchange="orFlJnWEtZ = mrpMtgCalc.processForm( 'mortgage-calc-7983368443337750096-p' )"
-                              class="form-control"
-                            >
-                              <option value="weekly">Weekly</option>
-                              <option value="bi-weekly">Bi-Weekly</option>
-                              <option value="semi-monthly">Semi-Monthly</option>
-                              <option value="monthly" selected>Monthly</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="in-group-2">
-                        <div class="form-group">
-                          <label>Down Payment:</label>
-                          <div class="control-wrapper">
-                            <input
-                              class="form-control dynamic-form-text"
-                              name="downPayment"
-                              type="text"
-                              onchange="orFlJnWEtZ = mrpMtgCalc.processForm( 'mortgage-calc-7983368443337750096-p' )"
-                              value="50,000"
-                            />
-                          </div>
-                        </div>
-
-                        <div class="form-group">
-                          <label>Closing Costs ($):</label>
-                          <div class="control-wrapper">
-                            <input
-                              class="form-control dynamic-form-text"
-                              name="closingCosts"
-                              type="text"
-                              onchange="orFlJnWEtZ = mrpMtgCalc.processForm( 'mortgage-calc-7983368443337750096-p' )"
-                              value="0"
-                            />
-                          </div>
-                        </div>
-
-                        <div class="form-group">
-                          <label>Closing Costs (%):</label>
-                          <div class="control-wrapper">
-                            <input
-                              class="form-control dynamic-form-text"
-                              name="closingCostsAsPercent"
-                              type="text"
-                              onchange="orFlJnWEtZ = mrpMtgCalc.processForm( 'mortgage-calc-7983368443337750096-p' )"
-                              value="0"
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="form-group button-group">
-                        <div class="control-wrapper">
-                          <button
-                            class="button"
-                            onclick="window.orFlJnWEtZ = mrpMtgCalc.processForm( 'mortgage-calc-7983368443337750096-p' ); return false;"
-                          >
-                            Calculate
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <hr />
-
-                    <div class="form-inner clearfix mortgage-summary">
-                      <div class="in-group-1">
-                        <div class="summary-line">
-                          <label>Loan amount:</label>
-                          <span
-                            class="summary-value"
-                            title="totalAmount"
-                          ></span>
-                        </div>
-                        <div class="summary-line">
-                          <label>Interest rate:</label>
-                          <span class="summary-value" title="rate"></span>
-                        </div>
-                        <div class="summary-line">
-                          <label>Payment interval:</label>
-                          <span class="summary-value" title="interval"></span>
-                        </div>
-                        <div class="summary-line">
-                          <label>Mortgage term:</label>
-                          <span class="summary-value" title="term"></span>
-                        </div>
-                      </div>
-
-                      <div class="in-group-2">
-                        <div class="summary-line">
-                          <label>Payment:</label>
-                          <span class="summary-value" title="payment"></span>
-                        </div>
-                        <div class="summary-line">
-                          <label>Total payments:</label>
-                          <span
-                            class="summary-value"
-                            title="numPayments"
-                          ></span>
-                        </div>
-                        <div class="summary-line">
-                          <label>Total amount paid:</label>
-                          <span class="summary-value" title="totalPaid"></span>
-                        </div>
-                        <div class="summary-line">
-                          <label>Total interest paid:</label>
-                          <span
-                            class="summary-value"
-                            title="totalInterest"
-                          ></span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <input name="gridColor" type="hidden" value="#000000" />
-                    <input name="gridTickColor" type="hidden" value="#777777" />
-                    <input
-                      name="bgColor1"
-                      type="hidden"
-                      value="rgba(0,0,0,0)"
-                    />
-                    <input
-                      name="bgColor2"
-                      type="hidden"
-                      value="rgba(0,0,0,0)"
-                    />
-                    <input name="debtColor" type="hidden" value="#FF0000" />
-                    <input name="interestColor" type="hidden" value="#D49F00" />
-                    <input name="equityColor" type="hidden" value="#2A5F00" />
-                    <div class="mortgage-calc-chart-container">
-                      <iframe
-                        id="mortgage-calc-7983368443337750096-p_iframe"
-                        name="mortgage-calc-7983368443337750096-p_iframe"
-                        class="mortgage-chart-frame"
-                        frameborder="0"
-                        marginheight="0"
-                        marginwidth="0"
-                        vspace="0"
-                        scrolling="no"
-                        ALLOWTRANSPARENCY="false"
-                        src=""
-                      ></iframe>
-                    </div>
-                    <div class="calculator-disclaimer">
-                      This calculator is for information purposes only. Users
-                      should not use this calculator to make any financial
-                      decisions and should speak with their bank or mortgage
-                      broker. The website owner does not guarantee the accuracy
-                      or reliability of any information or calculations provided
-                      by this calculator. The website owner is not liable for
-                      loss or damage of any kind arising from the use of this
-                      tool.
-                    </div>
-                    <script>
-                      window.customOnLoads.push(function () {
-                        window.orFlJnWEtZ = mrpMtgCalc.processForm(
-                          "mortgage-calc-7983368443337750096-p"
-                        );
-                        document
-                          .getElementById(
-                            "mortgage-calc-7983368443337750096-p_iframe"
-                          )
-                          .setAttribute(
-                            "src",
-                            "/wps/rest/59916/chart?dataVar=orFlJnWEtZ.plot&fmtVar=orFlJnWEtZ.plotFmt"
-                          );
-                      });
-                    </script>
-                  </div>
-                </div>
-              </div>
+            
+            <div id="mc-calc"></div>
+            <div id="error"></div>
+            <div class="calculator-disclaimer" style="text-align: center; margin-top: 20px;padding: 10px;">
+              This calculator is for information purposes only. Users
+              should not use this calculator to make any financial
+              decisions and should speak with their bank or mortgage
+              broker. The website owner does not guarantee the accuracy
+              or reliability of any information or calculations provided
+              by this calculator. The website owner is not liable for
+              loss or damage of any kind arising from the use of this
+              tool.
             </div>
             <div
               id="bid_8987493-bottom-space"
@@ -999,5 +780,39 @@ Reserved. NOTE: This representation is based in whole or in part on data generat
       src="/__ext.js?c=8&amp;r=js+blocks.js,js+responsive-containers-mod.js,+js+blocks+menu200c.js,js+weblets+mortgage-calculator-ca.js,+js+blocks+maps.js,+js+blocks+brand-footer.js,"
     ></script>
     <script src="/wps/js/jquery-1.12.4.min.js"></script>
+    <script>
+      function getQueryParameter(name) {
+                                    const urlParams = new URLSearchParams(window.location.search);
+                                    return urlParams.get(name);
+                                }
+      const propertyParam = getQueryParameter('property');
+      const property = JSON.parse(decodeURIComponent(propertyParam));
+      document.addEventListener('DOMContentLoaded', function () {
+          let element = document.getElementById('mc-calc');
+          let price = 500000;
+          if(property && property.price) {
+              price = property.price;
+          }
+          let calculator = new mortgagecalculator.ca.Calc(element, {
+              type: mortgagecalculator.ca.Type.WIDGET,
+              province: 'BC',
+              price: price.toLocaleString(),
+              style: {
+                  backgroundColor: '',
+                  borderColor: '',
+                  textColor: '',
+                  priceColor: '',
+                  titleColor: '',
+                  fontFamily: '',
+                  fontSize: ''
+              }
+          });
+
+
+      });
+  </script>
+  <script src="https://widget.mortgagecalculator.ca/js?key=2846e40d-e93e-40aa-a918-5a33281886de"></script>
+  <div>Provided by <a href="https://mortgagecalculator.ca">MortgageCalculator.ca</a></div>
+    
   </body>
 </html>

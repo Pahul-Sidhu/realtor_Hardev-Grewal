@@ -144,52 +144,9 @@
     <meta
 
     />
-    <!-- auto-generated ld+json info -->
-    <!-- <script type="application/ld+json">
-      {
-        "@context": "http://www.schema.org",
-        "@type": "RealEstateAgent",
-        "url": "https://eleven.theme.myrealpage.com/",
-        "image": "https://eleven.theme.myrealpage.com/_media/site-photo-1697753206188.jpg",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "123 Block Street ",
-          "addressLocality": "Vancouver",
-          "addressRegion": "BC",
-          "postalCode": "V8K 7K8",
-          "addressCountry": "Canada"
-        },
-        "priceRange": "$$$",
-        "telephone": "604-123-4567",
-        "contactPoint": [
-          {
-            "@type": "ContactPoint",
-            "telephone": "604-123-4567",
-            "contactType": "Phone"
-          },
-          {
-            "@type": "ContactPoint",
-            "telephone": "604-123-4567",
-            "contactType": "Cell"
-          }
-        ],
-        "sameAs": []
-      }
-    </script> -->
-    <!-- auto-generated ld+json breadcrumbs -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home Evaluation"
-          }
-        ]
-      }
-    </script>
+    <META property="og:url" content="https://hardevgrewal.com/home-evaluation.html">
+
+
   </head>
   <body
     class="themeb011 bts-filled home-evaluation blocks-site"
@@ -796,9 +753,11 @@
                   <div class="form-buttons">
                     <div class="buttons-left"></div>
                     <div class="buttons-right">
-                      <button class="button btn submit-button" type="submit" id="sendEmailLink">
+                      <button class="button btn submit-button" type="submit" id="submit">
                         <span class="label">Submit</span>
                       </button>
+                      <a style="display: none;" href="#" id="sendEmailLink">
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -942,7 +901,7 @@
                                     <br>
                                     Cell: 604-500-3920
                                     <br>
-                                    hardev.grewal@yahoo.ca
+                                    hardevgrewal52@gmail.com
                                     <br>
                                     <br>
                                     Head Office
@@ -1032,6 +991,7 @@ Reserved. NOTE: This representation is based in whole or in part on data generat
     <script>
       document.getElementById('home-evaluation-form').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent default form submission
+        console.log('Form submitted');
       
         // Retrieve form data
         const formData = new FormData(this);
@@ -1045,20 +1005,28 @@ Reserved. NOTE: This representation is based in whole or in part on data generat
         const size = formData.get('Size');
         const features = formData.get('Features');
         const notes = formData.get('Notes');
+
+
+        //Validate form data
+
+        if (!name || !phone || !address || !city || !postalCode || !bedrooms || !bathrooms || !size || !features || !notes) {
+          alert('Please fill in all fields');
+          return;
+        }
       
         // Construct email body
         const emailBody = `
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Phone:</strong> ${phone}</p>
-          <p><strong>Address:</strong> ${address}</p>
-          <p><strong>City:</strong> ${city}</p>
-          <p><strong>Postal / Zip code:</strong> ${postalCode}</p>
-          <p><strong>Bedrooms:</strong> ${bedrooms}</p>
-          <p><strong>Bathrooms:</strong> ${bathrooms}</p>
-          <p><strong>Size:</strong> ${size}</p>
-          <p><strong>Features:</strong> ${features}</p>
-          <p><strong>Notes:</strong> ${notes}</p>
-        `;
+          Name: ${name}\n
+Phone: ${phone}\n
+Address: ${address}\n
+City: ${city}\n
+Postal / Zip code: ${postalCode}\n
+Bedrooms: ${bedrooms}\n
+Bathrooms: ${bathrooms}\n
+Size: ${size}\n
+Features: ${features}\n
+Notes: ${notes}\n
+          `.trim();
 
        // Set the href attribute of the sendEmailLink
        const sendEmailLink = document.getElementById('sendEmailLink');

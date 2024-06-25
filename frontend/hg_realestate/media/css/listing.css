@@ -1468,11 +1468,6 @@ Usage
   font-size: 0;
 }
 
-.btn-container{
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
 
 #prev-page, #next-page {
   background-color: #337ab7;
@@ -1530,19 +1525,10 @@ button {
   border: none;
   font-size: 30px;
   cursor: pointer;
-  position: absolute;
-  top: 50%;
   transform: translateY(-50%);
   padding: 10px;
 }
 
-.prev {
-  left: 0;
-}
-
-.next {
-  right: 0;
-}
 
 #prev-page.disabled, #next-page.disabled {
   background-color: #77b2e5;
@@ -1778,12 +1764,7 @@ button {
   opacity: 0.5;
 }
 #listing-results-view.mrp-style-area .mrp-listing-page-navigation .page-buttons a.previous-page-link,
-#listing-results-view.mrp-style-area .mrp-listing-page-navigation .page-buttons a.next-page-link {
-  font-size: 0;
-  line-height: 12px;
-  display: inline-block;
-  padding: 8px 30px;
-}
+
 #listing-results-view.mrp-style-area .mrp-listing-page-navigation .page-buttons a.current {
   display: inline-block;
   box-shadow: none;
@@ -1795,9 +1776,7 @@ button {
 #listing-results-view.mrp-style-area .mrp-listing-page-navigation .page-buttons a.previous-page-link::before {
   content: "\e8a8";
 }
-#listing-results-view.mrp-style-area .mrp-listing-page-navigation .page-buttons a.next-page-link::before {
-  content: "\e8a9";
-}
+
 #listing-results-view.mrp-style-area .mrp-listing-result-overlay {
   position: absolute;
   left: 0;

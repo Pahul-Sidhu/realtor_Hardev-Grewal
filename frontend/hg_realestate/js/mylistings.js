@@ -144,7 +144,16 @@ function parseArea(areaString) {
 
 async function fetchListings() {
   try {
-    const response = await fetch("http://localhost:8000/getlistings");
+    if (listings.attached.length !== 0 && listings.detached.length !== 0) {
+      return;
+    }
+    await login();
+    const response = await fetch("http://localhost:8000/getlistings", {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem('token')}`
+      }
+    });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -307,19 +316,15 @@ function hideSpinner(loadingDiv) {
   loadingDiv.style.visibility = "hidden";
 }
 
-function appendHomeProperties() {
+async function appendHomeProperties() {
+  await fetchListings();
   const swiperWrapper = document.querySelector(".swiper-wrapper");
   listings.attached.slice(0, 20).forEach((listing) => {
     const slide = document.createElement("div");
     slide.classList.add("swiper-slide", "s-item", "with-ribbon", "s-ribbon");
-
+    const serializedProperty = encodeURIComponent(JSON.stringify(listing));
     slide.innerHTML = `
-            <a href="mylistings.html/listing.mrp4873-${
-              listing.id
-            }-${listing.address.replace(
-      /\s/g,
-      "-"
-    )}" class="s-link" role="button" aria-label="${listing.address}"></a>
+            <a href="./listing.html?property=${serializedProperty}" class="s-link" role="button" aria-label="${listing.address}"></a>
             <div class="s-image s-image-zoom " data-listing="true" data-id="${listings.attached.indexOf(
               listing
             )}">
@@ -347,4 +352,23 @@ function getlistings() {
   const attached = listings.attached;
   const detached = listings.detached;
   return attached.concat(detached);
+}
+
+async function login(){
+  try {
+    const response = await fetch('http://localhost:8000/login', {
+      method: 'GET',
+      credentials: 'include'
+    });
+
+    const data = await response.json();
+    if (response.ok) {
+      console.log(data.message);
+      localStorage.setItem('token', data.token);
+    } else {
+      console.error('Login failed:', data);
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
 }

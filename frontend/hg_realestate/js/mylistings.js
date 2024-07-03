@@ -88,11 +88,9 @@ function createListingItem(property) {
         </div>
       </div>
       <div class="mrp-listing-details-link">
-        <a title="${property.address}" href="./listing.html">LISTING DETAILS</a>
+        <a title="${property.address}" class="detail-link" href="#">LISTING DETAILS</a>
       </div>
-      <div class="mrp-listing-links-section">
-        <a class="menu-handle property-link" href="#" id="property-detail"></a>
-      </div>
+
       <div class="mrp-owner-contact-container">
         <div class="listing-contact-info">
           <ul class="listing-contact-info-wrapper">
@@ -116,6 +114,15 @@ function createListingItem(property) {
     `;
 
     li.querySelectorAll('.property-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const serializedProperty = encodeURIComponent(JSON.stringify(property));
+        const url = `./listing.html?property=${serializedProperty}`;
+        window.location.href = url;
+      });
+    });
+
+    li.querySelectorAll('.detail-link').forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
         const serializedProperty = encodeURIComponent(JSON.stringify(property));
@@ -148,7 +155,7 @@ async function fetchListings() {
       return;
     }
     await login();
-    const response = await fetch("http://localhost:8000/getlistings", {
+    const response = await fetch("https://backend.hardevgrewal.com/getlistings", {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -302,8 +309,7 @@ document.addEventListener("click", function (event) {
     // const targetId = event.target.getAttribute("data-target");
     const gp = event.target.parentElement.parentElement;
     const overlay =
-      gp.nextElementSibling.nextElementSibling.nextElementSibling
-        .nextElementSibling;
+      gp.nextElementSibling.nextElementSibling.nextElementSibling;
     openModal(overlay);
   }
 });
@@ -356,7 +362,7 @@ function getlistings() {
 
 async function login(){
   try {
-    const response = await fetch('http://localhost:8000/login', {
+    const response = await fetch('https://backend.hardevgrewal.com/login', {
       method: 'GET',
       credentials: 'include'
     });

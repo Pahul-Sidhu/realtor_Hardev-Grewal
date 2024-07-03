@@ -118,6 +118,11 @@
                     --menu-h-min: 8rem;
                     --menu-bg-color: rgba(0, 0, 0, 0.8);
                 }
+                @media (max-width: 800px) {
+        #subcat {
+          display: none;
+        }
+      }
                 </style>
 <div class="menu-style menu-style-2">
     <div class="primary-menu outer menu-style-2 dark dark-fixed fixed-menu" style="--title: rgba(255,255,255,1); --subtitle: var(--g-accent-color); --dropdown-menu-column: 5; --menu-bg-color: rgba(0,0,0,0.8); --menu-text-color: rgba(255,255,255,1); --menu-bg-color-fixed: rgba(0,0,0,0.8); --menu-text-color-fixed: rgba(255,255,255,1);">
@@ -420,7 +425,7 @@
 
                                     <div class="inline-container" id="mrp-inline-container">
 
-                                        <div class="mrp-listing-results-sub-categories">
+                                        <div class="mrp-listing-results-sub-categories" id="subcat">
                                             <span class="menu-handle"></span>
                                             <ul class="listing-sub-categories">
                                                 <li class="listing-sub-category-all selected" id="all">

@@ -305,6 +305,29 @@
                 cursor: pointer;
             }
 
+            #map-container {
+                position: relative;
+                width: 100%;
+                height: 100vh; /* Adjust as needed */
+                }
+
+                #map {
+                width: 100%;
+                height: 100%;
+                }
+
+                #city-selector {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                z-index: 1;
+                }
+
+                #city-dropdown {
+                padding: 5px;
+                font-size: 14px;
+                }
+
             @media (max-width: 800px) {
                 .container {
                 flex-direction: column;
@@ -314,7 +337,7 @@
                     height: 70vh;
                 }
                 #listings {
-                    margin-top: 10px;
+                    margin-top: 1px;
                     margin-bottom: 10px;
                     height: 70vh;
                     width: 100%;
@@ -651,7 +674,22 @@
             </div>
           </div>
                     <div class="container">
-                        <div id="map"></div>
+                        <div id="map-container">
+                            <div id="map"></div>
+                            <div id="city-selector">
+                                <select id="city-dropdown">
+                                  <option value="">Select a city</option>
+                                  <option value="vancouver">Vancouver</option>
+                                  <option value="surrey">Surrey</option>
+                                  <option value="burnaby">Burnaby</option>
+                                  <option value="abbotsford">Abbotsford</option>
+                                  <option value="mission">Mission</option>
+                                  <option value="chilliwack">Chilliwack</option>
+                                  <option value="delta">Delta</option>
+                                  <option value="coquitlam">Coquitlam</option>
+                                </select>
+                              </div>
+                          </div>
                         <div id="listings">
                             <ul id="results-container" data-context="mylistings"></ul>
                         </div>
@@ -869,6 +907,7 @@
             });
 
             addMarkersAndInfoWindows();
+            setupCityDropdown();
 
 
             
@@ -897,6 +936,29 @@
             
         }
 
+        function setupCityDropdown() {
+            const cities = {
+                'vancouver': { lat: 49.2827, lng: -123.1207 },
+                'surrey': { lat: 49.1913, lng: -122.8490 },
+                'burnaby': { lat: 49.2488, lng: -122.9805 },
+                'abbotsford': { lat: 49.0504, lng: -122.3045 },
+                'mission': { lat: 49.1337, lng: -122.3149 },
+                'chilliwack': { lat: 49.1579, lng: -121.9514 },
+                'delta': { lat: 49.0843, lng: -123.0584 },
+                'coquitlam': { lat: 49.2838, lng: -122.7932 }
+            };
+
+            const dropdown = document.getElementById('city-dropdown');
+            
+            dropdown.addEventListener('change', (event) => {
+                const selectedCity = event.target.value;
+                if (selectedCity && cities[selectedCity]) {
+                map.setCenter(cities[selectedCity]);
+                map.setZoom(12);
+                }
+            });
+            }
+
         document.getElementById('search-button').addEventListener('click', handleSearch);
 
 
@@ -907,7 +969,7 @@
                 origin: new google.maps.Point(0, 0), // Origin of the marker
                 anchor: new google.maps.Point(25, 50) // Anchor point of the marker
             };
-            geocoder.geocode({ 'address': listing.address }, (results, status) => {
+            geocoder.geocode({ 'address': `${listing.address}, ${listing.area}` }, (results, status) => {
                 if (status === 'OK') {
                     const position = results[0].geometry.location;
                     const marker = new google.maps.Marker({
